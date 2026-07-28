@@ -1,0 +1,118 @@
+---
+import { Award, Heart, Leaf, Sparkles } from "@lucide/astro";
+import Button from "@components/common/Button.astro";
+import Container from "@components/common/Container.astro";
+import EditorialImage from "@components/common/EditorialImage.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { site } from "@content/site";
+
+const credentials = [
+  "Licensed Esthetician in California and Nevada",
+  "Practicing since 2012",
+  "Certified Reiki Practitioner",
+  "Certified Sound Bath Practitioner"
+];
+
+const philosophy = [
+  {
+    title: "Quiet Precision",
+    text: "Beauty work should feel refined, balanced, and personal without becoming overdone.",
+    Icon: Sparkles
+  },
+  {
+    title: "Whole-Person Care",
+    text: "The studio experience considers comfort, energy, pacing, and the way someone feels afterward.",
+    Icon: Heart
+  },
+  {
+    title: "Restorative Atmosphere",
+    text: "Every detail is intended to support calm: the pace, the tone, the visuals, and the room around the service.",
+    Icon: Leaf
+  }
+];
+---
+
+<BaseLayout
+  title="About | Sassy Alchemy"
+  description="Meet Lisa and learn about the quiet beauty and wellness philosophy behind Sassy Alchemy."
+>
+  <section class="bg-ivory pt-28 sm:pt-32 lg:pt-36">
+    <Container class="grid gap-10 py-16 sm:py-20 lg:grid-cols-[0.82fr_1.18fr] lg:items-end lg:py-24" size="wide">
+      <div>
+        <p class="text-xs font-semibold uppercase text-gold-deep">About</p>
+        <h1 class="mt-5 max-w-4xl text-balance text-6xl leading-[0.92] sm:text-7xl lg:text-8xl">
+          A boutique studio with a quieter kind of care.
+        </h1>
+      </div>
+      <p class="max-w-2xl text-lg leading-8 text-stone-600 lg:pb-2">
+        Sassy Alchemy brings together refined beauty services and restorative wellness experiences in a calm, intentional studio setting.
+      </p>
+    </Container>
+  </section>
+
+  <section class="bg-cream py-18 sm:py-22 lg:py-30">
+    <Container class="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-center" size="wide">
+      <EditorialImage src="/images/lisa-placeholder.jpg" alt="Lisa portrait placeholder" ratio="portrait" class="h-[34rem] aspect-auto" />
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase text-gold-deep">Meet Lisa</p>
+        <h2 class="mt-5 text-5xl leading-none sm:text-6xl">The presence behind Sassy Alchemy.</h2>
+        <p class="mt-7 text-lg leading-8 text-stone-600">
+          Lisa’s approved personal story will be written here. This section is reserved for her background,
+          path into beauty and wellness, and the details that make the studio distinctly hers.
+        </p>
+        <div class="surface-soft mt-8 p-6">
+          <div class="flex items-center gap-3">
+            <Award aria-hidden="true" size={22} stroke-width={1.4} class="text-gold-deep" />
+            <p class="text-sm font-semibold uppercase text-forest-900">Credentials</p>
+          </div>
+          <ul class="mt-5 grid gap-3 text-stone-600">
+            {credentials.map((credential) => (
+              <li>{credential}</li>
+            ))}
+          </ul>
+        </div>
+        <Button href={site.bookingUrl} class="mt-8">Book</Button>
+      </div>
+    </Container>
+  </section>
+
+  <section class="bg-ivory py-18 sm:py-22 lg:py-30">
+    <Container>
+      <div class="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+        <div>
+          <p class="text-xs font-semibold uppercase text-gold-deep">Studio philosophy</p>
+          <h2 class="mt-5 text-5xl leading-none sm:text-6xl">Intentional beauty. Restorative rhythm.</h2>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
+          {philosophy.map(({ title, text, Icon }) => (
+            <article class="border-t border-stone-200 pt-6 transition duration-500 ease-editorial hover:-translate-y-1 hover:border-gold-muted">
+              <Icon aria-hidden="true" size={24} stroke-width={1.4} class="text-gold-deep" />
+              <h3 class="mt-7 text-3xl leading-none">{title}</h3>
+              <p class="mt-5 text-stone-600">{text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="bg-forest-900 text-ivory">
+    <Container class="grid gap-8 py-18 sm:py-22 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:py-30" size="wide">
+      <div>
+        <p class="text-xs font-semibold uppercase text-gold-muted">Mission</p>
+        <h2 class="mt-5 text-5xl leading-none text-ivory sm:text-6xl">
+          To make care feel beautiful, grounded, and deeply personal.
+        </h2>
+      </div>
+      <div class="max-w-2xl text-lg leading-8 text-cream/75">
+        <p>
+          Sassy Alchemy exists to offer beauty and wellness experiences that help clients feel both polished and restored.
+          Final mission language can be refined with Lisa’s voice and approved brand copy.
+        </p>
+        <p class="mt-6 border-l border-gold-muted/60 pl-6">
+          Placeholder for Lisa’s personal perspective, values, and studio origin story.
+        </p>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

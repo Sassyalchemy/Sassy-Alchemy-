@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-forest: #102a20;
+  --color-forest-soft: #244734;
+  --color-cream: #f7f1e7;
+  --color-ivory: #fbf8f1;
+  --color-gold: #b8995f;
+  --color-stone: #ded5c6;
+  --color-charcoal: #242522;
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-cream);
+}
+
+body {
+  min-width: 320px;
+  background:
+    linear-gradient(180deg, rgba(251, 248, 241, 0.82), rgba(247, 241, 231, 0.92)),
+    var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(184, 153, 95, 0.35);
+  color: var(--color-forest);
+}
+
+a {
+  text-underline-offset: 0.18em;
+}
+
+button,
+summary,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-gold);
+  outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: theme("colors.forest.900");
+    font-family: theme("fontFamily.serif");
+    font-weight: 500;
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+
+  p {
+    line-height: 1.75;
+  }
+
+  summary {
+    outline-offset: 6px;
+  }
+}
+
+@layer components {
+  .editorial-rule {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(184, 153, 95, 0.65), transparent);
+  }
+
+  .eyebrow {
+    color: theme("colors.gold.deep");
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .surface-soft {
+    border: 1px solid rgba(222, 213, 198, 0.72);
+    background:
+      linear-gradient(180deg, rgba(251, 248, 241, 0.82), rgba(247, 241, 231, 0.56)),
+      theme("colors.ivory");
+    box-shadow: 0 20px 60px rgba(16, 42, 32, 0.06);
+  }
+
+  .image-frame {
+    box-shadow:
+      0 24px 80px rgba(16, 42, 32, 0.08),
+      inset 0 0 0 1px rgba(251, 248, 241, 0.26);
+  }
+
+  .image-frame img {
+    animation: image-settle 900ms var(--ease-soft) both;
+  }
+
+}
+
+@keyframes image-settle {
+  from {
+    filter: saturate(0.82) contrast(0.94);
+    opacity: 0.82;
+    transform: scale(1.012);
+  }
+
+  to {
+    filter: saturate(0.96) contrast(1);
+    opacity: 1;
+    transform: scale(1);
+  }
+}

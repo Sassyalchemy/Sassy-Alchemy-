@@ -1,0 +1,22 @@
+---
+type Props = {
+  as?: keyof HTMLElementTagNameMap;
+  class?: string;
+  size?: "default" | "narrow" | "wide";
+};
+
+const props = Astro.props as Props;
+const Tag = props.as ?? "div";
+const className = props.class ?? "";
+const size = props.size ?? "default";
+
+const sizes: Record<NonNullable<Props["size"]>, string> = {
+  narrow: "max-w-measure",
+  default: "max-w-editorial",
+  wide: "max-w-site"
+};
+---
+
+<Tag class:list={["mx-auto w-full px-5 sm:px-8 lg:px-10", sizes[size], className]}>
+  <slot />
+</Tag>

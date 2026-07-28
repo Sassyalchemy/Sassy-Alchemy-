@@ -1,0 +1,19 @@
+---
+import Button from "@components/common/Button.astro";
+import Container from "@components/common/Container.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { withBase } from "@content/paths";
+---
+
+<BaseLayout title="Page Not Found | Sassy Alchemy" noindex={true}>
+  <section class="bg-ivory pt-28 sm:pt-32 lg:pt-36">
+    <Container class="min-h-[60svh] py-20">
+      <p class="text-xs font-semibold uppercase text-gold-deep">404</p>
+      <h1 class="mt-5 max-w-3xl text-5xl leading-none sm:text-6xl">This page has slipped out of view.</h1>
+      <p class="mt-6 max-w-xl text-stone-600">
+        Return to the main studio experience and continue from there.
+      </p>
+      <Button href={withBase("/")} class="mt-8">Return Home</Button>
+    </Container>
+  </section>
+</BaseLayout>

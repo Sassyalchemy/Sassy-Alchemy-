@@ -1,0 +1,321 @@
+---
+import { ArrowRight, ChevronLeft, ChevronRight, Clock, Leaf, Sparkles, Star } from "@lucide/astro";
+import Button from "@components/common/Button.astro";
+import Container from "@components/common/Container.astro";
+import EditorialImage from "@components/common/EditorialImage.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { site } from "@content/site";
+import { withBase } from "@content/paths";
+import { reviews } from "@content/reviews";
+
+const categories = [
+  {
+    title: "Lashes & Brows",
+    image: "/images/lashes-placeholder.jpg",
+    description: "Soft definition, careful shaping, and beauty work that still feels like you."
+  },
+  {
+    title: "Facials & Skin",
+    image: "/images/facial-placeholder.jpg",
+    description: "Restorative skin rituals for glow, balance, and an unrushed sense of care."
+  },
+  {
+    title: "Wellness",
+    image: "/images/wellness-placeholder.jpg",
+    description: "Grounding experiences created for nervous-system ease and intentional pause."
+  }
+];
+
+const steps = [
+  {
+    title: "Personalized Care",
+    text: "Each service is thoughtfully tailored to your needs.",
+    Icon: Sparkles
+  },
+  {
+    title: "Time to Unwind",
+    text: "A welcoming environment designed for slowing down.",
+    Icon: Clock
+  },
+  {
+    title: "Leave Restored",
+    text: "Beauty and wellness experiences created to help you feel refreshed inside and out.",
+    Icon: Leaf
+  }
+];
+
+const testimonials = reviews.map((review) => review.excerpt);
+---
+
+<BaseLayout
+  title="Sassy Alchemy | Boutique Beauty & Wellness Studio"
+  description="Editorial beauty and wellness experiences in a calm boutique studio: lashes, facials, restorative wellness, and sound bath rituals."
+  image="/images/hero-placeholder.jpg"
+  preloadImage={true}
+>
+  <section class="relative min-h-screen overflow-hidden bg-forest-900 pt-20 text-ivory">
+    <img
+      src={withBase("/images/hero-placeholder.jpg")}
+      alt="Warm restorative studio atmosphere placeholder for Sassy Alchemy"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      class="absolute inset-0 h-full w-full object-cover opacity-75"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-900/40 via-forest-900/20 to-forest-900/70"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(247,241,231,0.18),transparent_28%),linear-gradient(90deg,rgba(16,42,32,0.82),rgba(16,42,32,0.18))]"></div>
+
+    <Container class="relative flex min-h-[calc(100svh-5rem)] items-end pb-14 sm:pb-18 lg:pb-20" size="wide">
+      <div class="max-w-4xl">
+        <p class="mb-5 text-xs font-semibold uppercase text-cream/80">Beauty, wellness, restoration</p>
+        <h1 class="max-w-4xl text-balance text-6xl leading-[0.9] text-ivory sm:text-7xl lg:text-8xl">
+          Rituals for the face, body, and nervous system.
+        </h1>
+        <p class="mt-7 max-w-xl text-lg leading-8 text-cream/80">
+          A calm boutique studio for refined beauty work and restorative wellness experiences.
+        </p>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <Button href={site.bookingUrl} variant="secondary">Book</Button>
+          <Button href={withBase("/services/")} variant="ghost" class="border-cream/40 text-ivory hover:border-cream hover:bg-cream hover:text-forest-900">
+            Explore Experiences
+          </Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="bg-cream py-18 sm:py-22 lg:py-30">
+    <Container size="wide">
+      <div class="grid gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+        <div>
+          <p class="text-xs font-semibold uppercase text-gold-deep">Featured categories</p>
+          <h2 class="mt-4 text-5xl leading-none sm:text-6xl">Where beauty and restorative wellness come together.</h2>
+        </div>
+        <p class="max-w-2xl text-lg leading-8 text-stone-600 lg:justify-self-end">
+          Each offering is designed to feel precise, grounding, and personal, with enough quiet around it to let the work breathe.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-5 lg:grid-cols-3">
+        {categories.map((category) => (
+          <a
+            href={withBase("/services/")}
+            class="image-frame group relative min-h-[32rem] overflow-hidden bg-forest-900 text-ivory transition duration-500 ease-editorial hover:-translate-y-1 focus-visible:-translate-y-1"
+          >
+            <img
+              src={withBase(category.image)}
+              alt={`${category.title} placeholder`}
+              loading="lazy"
+              decoding="async"
+              class="absolute inset-0 h-full w-full object-cover opacity-80 transition duration-700 ease-editorial group-hover:scale-[1.035] group-hover:opacity-60"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-forest-900/90 via-forest-900/20 to-transparent"></div>
+            <div class="relative flex h-full min-h-[32rem] flex-col justify-end p-7 sm:p-8">
+              <div class="mb-8 h-px w-20 bg-gold-muted transition duration-500 group-hover:w-28"></div>
+              <div class="flex items-end justify-between gap-6">
+                <div>
+                  <h3 class="text-4xl leading-none text-ivory sm:text-5xl">{category.title}</h3>
+                  <p class="mt-4 max-w-sm text-cream/0 transition duration-500 group-hover:text-cream/80 motion-reduce:text-cream/80 max-lg:text-cream/80">
+                    {category.description}
+                  </p>
+                </div>
+                <ArrowRight
+                  aria-hidden="true"
+                  size={24}
+                  stroke-width={1.4}
+                  class="mb-1 shrink-0 text-gold-muted transition duration-500 group-hover:translate-x-1"
+                />
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="bg-ivory py-18 sm:py-22 lg:py-30">
+    <Container>
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-xs font-semibold uppercase text-gold-deep">The experience</p>
+        <h2 class="mt-4 text-5xl leading-none sm:text-6xl">Designed around you.</h2>
+      </div>
+
+      <div class="mt-14 grid gap-10 md:grid-cols-3">
+        {steps.map(({ title, text, Icon }, index) => (
+          <article class="text-center">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-stone-200 bg-cream text-forest-900 shadow-[0_16px_40px_rgba(16,42,32,0.06)]">
+              <Icon aria-hidden="true" size={24} stroke-width={1.4} />
+            </div>
+            <p class="mt-8 text-sm text-gold-deep">0{index + 1}</p>
+            <h3 class="mt-3 text-4xl leading-none">{title}</h3>
+            <p class="mx-auto mt-5 max-w-xs text-stone-600">{text}</p>
+          </article>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="bg-cream py-18 sm:py-22 lg:py-30">
+    <Container class="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-center" size="wide">
+      <EditorialImage
+        src="/images/services-placeholder.jpg"
+        alt="Alchemy Signature Facial placeholder"
+        ratio="landscape"
+        class="h-[28rem] aspect-auto"
+      />
+      <div class="max-w-xl lg:justify-self-end">
+        <p class="text-xs font-semibold uppercase text-gold-deep">Featured service</p>
+        <h2 class="mt-5 text-5xl leading-none sm:text-6xl">Alchemy Signature Facial</h2>
+        <p class="mt-6 text-lg leading-8 text-stone-600">
+          A deeply considered facial ritual created for visible glow, skin balance, and a calmer state of being.
+        </p>
+        <Button href={withBase("/services/#facials-skin")} class="mt-8">Explore Facials</Button>
+      </div>
+    </Container>
+  </section>
+
+  <section class="overflow-hidden bg-forest-900 text-ivory">
+    <Container class="grid gap-10 py-18 sm:py-22 lg:grid-cols-[0.84fr_1.16fr] lg:items-center lg:py-30" size="wide">
+      <div class="max-w-xl">
+        <p class="text-xs font-semibold uppercase text-gold-muted">Wellness feature</p>
+        <h2 class="mt-5 text-5xl leading-none text-ivory sm:text-6xl">Sound Bath Experiences</h2>
+        <p class="mt-6 text-lg leading-8 text-cream/75">
+          Immersive sessions for rest, release, and a slower return to yourself.
+        </p>
+        <Button href={withBase("/services/#wellness")} variant="secondary" class="mt-8">Explore Wellness</Button>
+      </div>
+      <EditorialImage
+        src="/images/soundbath-placeholder.jpg"
+        alt="Sound bath experience placeholder"
+        ratio="wide"
+        class="h-[24rem] aspect-auto border border-cream/15"
+      />
+    </Container>
+  </section>
+
+  <section class="bg-ivory py-18 sm:py-22 lg:py-30">
+    <Container class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+      <EditorialImage src="/images/lisa-placeholder.jpg" alt="Lisa portrait placeholder" ratio="portrait" />
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase text-gold-deep">Meet Lisa</p>
+        <h2 class="mt-5 text-5xl leading-none sm:text-6xl">A grounded presence behind every appointment.</h2>
+        <div class="mt-8 grid gap-4 border-y border-stone-200 py-6 sm:grid-cols-3">
+          <p class="text-sm text-stone-600"><span class="block font-semibold uppercase text-forest-900">Role</span> Founder</p>
+          <p class="text-sm text-stone-600"><span class="block font-semibold uppercase text-forest-900">Specialty</span> Beauty & wellness</p>
+          <p class="text-sm text-stone-600"><span class="block font-semibold uppercase text-forest-900">Credentials</span> Licensed Esthetician</p>
+        </div>
+        <p class="mt-7 text-lg leading-8 text-stone-600">
+          Lisa’s introduction and professional credentials will be refined here with approved client copy.
+        </p>
+        <Button href={withBase("/about/")} variant="secondary" class="mt-8">Meet Lisa</Button>
+      </div>
+    </Container>
+  </section>
+
+  <section class="bg-cream py-18 sm:py-22 lg:py-30">
+    <Container size="wide">
+      <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div class="max-w-2xl">
+          <p class="text-xs font-semibold uppercase text-gold-deep">Reviews</p>
+          <h2 class="mt-4 text-5xl leading-none sm:text-6xl">Client notes worth lingering on.</h2>
+        </div>
+        <div class="flex gap-2" aria-label="Testimonial carousel controls">
+          <button
+            type="button"
+            data-carousel-prev
+            class="flex h-12 w-12 items-center justify-center border border-stone-200 bg-ivory text-forest-900 shadow-[0_10px_24px_rgba(16,42,32,0.06)] transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-forest-900 hover:bg-forest-900 hover:text-ivory"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft aria-hidden="true" size={20} stroke-width={1.5} />
+          </button>
+          <button
+            type="button"
+            data-carousel-next
+            class="flex h-12 w-12 items-center justify-center border border-stone-200 bg-ivory text-forest-900 shadow-[0_10px_24px_rgba(16,42,32,0.06)] transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-forest-900 hover:bg-forest-900 hover:text-ivory"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight aria-hidden="true" size={20} stroke-width={1.5} />
+          </button>
+        </div>
+      </div>
+
+      <div
+        data-testimonial-track
+        class="mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {testimonials.map((quote) => (
+          <figure class="surface-soft min-w-[86%] snap-start p-8 sm:min-w-[32rem] lg:min-w-[42rem] lg:p-10">
+            <div class="flex gap-1 text-gold-deep" aria-label="Five-star review">
+              {Array.from({ length: 5 }).map(() => (
+                <Star aria-hidden="true" size={17} stroke-width={1.4} fill="currentColor" />
+              ))}
+            </div>
+            <blockquote class="mt-10 font-serif text-4xl leading-tight text-forest-900 sm:text-5xl">
+              "{quote}"
+            </blockquote>
+            <figcaption class="mt-8 text-sm font-semibold uppercase text-stone-600">Featured client review</figcaption>
+          </figure>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="bg-ivory py-18 sm:py-22 lg:py-30">
+    <Container class="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-stretch" size="wide">
+      <div class="flex flex-col justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase text-gold-deep">Visit</p>
+          <h2 class="mt-5 text-5xl leading-none sm:text-6xl">Find your way to the studio.</h2>
+        </div>
+        <div class="mt-10 grid gap-6 border-y border-stone-200 py-7">
+          <div>
+            <p class="text-sm font-semibold uppercase text-forest-900">Location</p>
+            <p class="mt-2 text-stone-600">{site.contact.address}</p>
+          </div>
+          <div>
+            <p class="text-sm font-semibold uppercase text-forest-900">Hours</p>
+            <p class="mt-2 text-stone-600">{site.contact.hours}</p>
+          </div>
+          <div>
+            <p class="text-sm font-semibold uppercase text-forest-900">Accessibility</p>
+            <p class="mt-2 text-stone-600">{site.contact.accessibility}</p>
+          </div>
+        </div>
+        <Button href={site.bookingUrl} class="mt-8">Book</Button>
+      </div>
+
+      <a
+        href={site.googleMapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="image-frame group/map relative min-h-[28rem] overflow-hidden bg-stone-100 transition duration-500 ease-editorial hover:-translate-y-1 focus-visible:-translate-y-1"
+        aria-label="Open Sassy Alchemy in Google Maps"
+      >
+        <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,42,32,0.12)_1px,transparent_1px),linear-gradient(rgba(16,42,32,0.12)_1px,transparent_1px)] bg-[size:56px_56px]"></div>
+        <div class="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gold-muted bg-ivory text-forest-900 shadow-soft transition duration-500 group-hover/map:scale-105">
+          <Leaf aria-hidden="true" size={28} stroke-width={1.4} />
+        </div>
+        <div class="absolute bottom-6 left-6 right-6 border border-stone-200 bg-ivory/90 p-5 backdrop-blur">
+          <p class="text-sm font-semibold uppercase text-forest-900">Google Maps</p>
+          <p class="mt-2 text-sm text-stone-600">Open in Google Maps</p>
+        </div>
+      </a>
+    </Container>
+  </section>
+
+  <script>
+    const track = document.querySelector("[data-testimonial-track]");
+    const previous = document.querySelector("[data-carousel-prev]");
+    const next = document.querySelector("[data-carousel-next]");
+
+    const scrollByCard = (direction: number) => {
+      if (!(track instanceof HTMLElement)) return;
+      const card = track.querySelector("figure");
+      const distance = card instanceof HTMLElement ? card.offsetWidth + 20 : track.clientWidth * 0.85;
+      track.scrollBy({ left: distance * direction, behavior: "smooth" });
+    };
+
+    previous?.addEventListener("click", () => scrollByCard(-1));
+    next?.addEventListener("click", () => scrollByCard(1));
+  </script>
+</BaseLayout>

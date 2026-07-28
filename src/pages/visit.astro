@@ -1,0 +1,134 @@
+---
+import { ArrowUpRight, AtSign, Mail, MapPin, ParkingMeter, Phone, Timer, Accessibility } from "@lucide/astro";
+import Button from "@components/common/Button.astro";
+import Container from "@components/common/Container.astro";
+import EditorialImage from "@components/common/EditorialImage.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { site } from "@content/site";
+
+const visitDetails = [
+  {
+    title: "Address",
+    value: site.contact.addressLines,
+    Icon: MapPin
+  },
+  {
+    title: "Hours",
+    value: site.contact.hours,
+    Icon: Timer
+  },
+  {
+    title: "Parking",
+    value: site.contact.parking,
+    Icon: ParkingMeter
+  },
+  {
+    title: "Wheelchair Accessibility",
+    value: site.contact.accessibility,
+    Icon: Accessibility
+  }
+];
+---
+
+<BaseLayout
+  title="Visit | Sassy Alchemy"
+  description="Plan your visit to Sassy Alchemy with location, hours, accessibility, contact, and booking information."
+>
+  <section class="bg-ivory pt-28 sm:pt-32 lg:pt-36">
+    <Container class="grid gap-10 py-16 sm:py-20 lg:grid-cols-[0.84fr_1.16fr] lg:items-end lg:py-24" size="wide">
+      <div>
+        <p class="text-xs font-semibold uppercase text-gold-deep">Visit</p>
+        <h1 class="mt-5 max-w-4xl text-balance text-6xl leading-[0.92] sm:text-7xl lg:text-8xl">
+          Arrive slowly. Settle in.
+        </h1>
+      </div>
+      <div class="max-w-2xl lg:pb-2">
+        <p class="text-lg leading-8 text-stone-600">
+          Everything practical, arranged with the same calm as the studio experience.
+        </p>
+        <Button href={site.bookingUrl} class="mt-8">Book</Button>
+      </div>
+    </Container>
+  </section>
+
+  <section class="bg-cream py-18 sm:py-22 lg:py-30">
+    <Container class="grid gap-10 lg:grid-cols-[1.18fr_0.82fr] lg:items-stretch" size="wide">
+      <EditorialImage
+        src="/images/visit-placeholder.jpg"
+        alt="Sassy Alchemy studio imagery placeholder"
+        ratio="landscape"
+        class="h-[34rem] aspect-auto"
+      />
+      <div class="surface-soft grid content-between gap-8 p-7 sm:p-9">
+        <div>
+          <p class="text-xs font-semibold uppercase text-gold-deep">Studio details</p>
+          <h2 class="mt-5 text-5xl leading-none sm:text-6xl">Before you arrive.</h2>
+        </div>
+        <div class="grid gap-6">
+          {visitDetails.map(({ title, value, Icon }) => (
+            <div class="border-t border-stone-200 pt-5 transition duration-500 ease-editorial hover:border-gold-muted">
+              <Icon aria-hidden="true" size={21} stroke-width={1.4} class="text-gold-deep" />
+              <p class="mt-4 text-sm font-semibold uppercase text-forest-900">{title}</p>
+              {Array.isArray(value) ? (
+                <div class="mt-2 grid gap-1 text-stone-600">
+                  {value.map((line) => <p>{line}</p>)}
+                </div>
+              ) : (
+                <p class="mt-2 text-stone-600">{value}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="bg-ivory py-18 sm:py-22 lg:py-30">
+    <Container class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-stretch" size="wide">
+      <div>
+        <p class="text-xs font-semibold uppercase text-gold-deep">Contact</p>
+        <h2 class="mt-5 text-5xl leading-none sm:text-6xl">Connect with the studio.</h2>
+        <div class="mt-10 grid gap-5 border-y border-stone-200 py-7">
+          <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" class="group/contact flex items-center gap-4 text-stone-600 transition duration-300 ease-editorial hover:translate-x-1 hover:text-forest-900">
+            <AtSign aria-hidden="true" size={21} stroke-width={1.4} class="text-gold-deep" />
+            <span>{site.social.instagramHandle}</span>
+          </a>
+          <a href={site.contact.phoneHref} class="group/contact flex items-center gap-4 text-stone-600 transition duration-300 ease-editorial hover:translate-x-1 hover:text-forest-900">
+            <Phone aria-hidden="true" size={21} stroke-width={1.4} class="text-gold-deep" />
+            <span>{site.contact.phone}</span>
+          </a>
+          <a href={`mailto:${site.contact.email}`} class="group/contact flex items-center gap-4 text-stone-600 transition duration-300 ease-editorial hover:translate-x-1 hover:text-forest-900">
+            <Mail aria-hidden="true" size={21} stroke-width={1.4} class="text-gold-deep" />
+            <span>{site.contact.email}</span>
+          </a>
+        </div>
+        <a
+          href={site.bookingUrl}
+          target="_blank"
+          rel="noreferrer"
+          class="group/book mt-8 inline-flex min-h-12 items-center gap-3 border border-forest-900 bg-forest-900 px-5 py-3 text-sm font-semibold uppercase text-ivory shadow-[0_12px_28px_rgba(16,42,32,0.12)] transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted hover:text-forest-900 focus-visible:-translate-y-0.5 active:translate-y-0"
+        >
+          <span>Book</span>
+          <ArrowUpRight aria-hidden="true" size={16} stroke-width={1.6} class="transition duration-300 ease-editorial group-hover/book:translate-x-0.5 group-hover/book:-translate-y-0.5" />
+        </a>
+      </div>
+
+      <a
+        href={site.googleMapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="image-frame group/map relative block min-h-[34rem] overflow-hidden bg-stone-100 transition duration-500 ease-editorial hover:-translate-y-1 focus-visible:-translate-y-1"
+        aria-label="Open Sassy Alchemy in Google Maps"
+      >
+        <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,42,32,0.12)_1px,transparent_1px),linear-gradient(rgba(16,42,32,0.12)_1px,transparent_1px)] bg-[size:56px_56px]"></div>
+        <div class="absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gold-muted bg-ivory text-forest-900 shadow-soft transition duration-500 group-hover/map:scale-105">
+          <MapPin aria-hidden="true" size={30} stroke-width={1.4} />
+        </div>
+        <div class="absolute bottom-6 left-6 right-6 border border-stone-200 bg-ivory/90 p-5 backdrop-blur">
+          <p class="text-sm font-semibold uppercase text-forest-900">Google Maps</p>
+          <p class="mt-2 text-sm text-stone-600">Open in Google Maps</p>
+        </div>
+      </a>
+    </Container>
+  </section>
+</BaseLayout>

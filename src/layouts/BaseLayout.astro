@@ -1,0 +1,67 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import SiteFooter from "@components/layout/SiteFooter.astro";
+import SiteHeader from "@components/layout/SiteHeader.astro";
+import "@assets/styles/global.css";
+import { site } from "@content/site";
+import { withBase } from "@content/paths";
+
+type Props = {
+  title?: string;
+  description?: string;
+  image?: string;
+  preloadImage?: boolean;
+  noindex?: boolean;
+};
+
+const {
+  title = site.title,
+  description = site.description,
+  image = site.image,
+  preloadImage = false,
+  noindex = false
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.url).toString();
+const socialImage = new URL(withBase(image), site.url).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    {preloadImage && <link rel="preload" as="image" href={withBase(image)} fetchpriority="high" />}
+    <ViewTransitions />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-5 focus:top-5 focus:z-[100] focus:bg-forest-900 focus:px-4 focus:py-3 focus:text-ivory"
+    >
+      Skip to content
+    </a>
+    <SiteHeader />
+    <main id="main" transition:animate="fade">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

@@ -1,0 +1,62 @@
+---
+import Container from "@components/common/Container.astro";
+import Button from "@components/common/Button.astro";
+import { site } from "@content/site";
+import { withBase } from "@content/paths";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-forest-900 text-ivory">
+  <Container class="grid gap-12 py-14 sm:py-18 lg:grid-cols-[1.05fr_0.95fr] lg:py-20" size="wide">
+    <div>
+      <p class="font-serif text-5xl leading-none text-ivory sm:text-6xl">{site.name}</p>
+      <p class="mt-6 max-w-lg text-base leading-8 text-cream/75">
+        Boutique beauty and wellness rituals shaped with warmth, restraint, and intention.
+      </p>
+      <Button href={site.bookingUrl} variant="secondary" class="mt-8">
+        Book
+      </Button>
+    </div>
+
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <p class="mb-4 text-sm font-semibold uppercase text-gold-muted">Instagram</p>
+        <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" class="text-cream/75 transition hover:text-ivory">
+          {site.social.instagramHandle}
+        </a>
+      </div>
+
+      <div>
+        <p class="mb-4 text-sm font-semibold uppercase text-gold-muted">Phone</p>
+        <a href={site.contact.phoneHref} class="text-cream/75 transition hover:text-ivory">
+          {site.contact.phone}
+        </a>
+      </div>
+
+      <div>
+        <p class="mb-4 text-sm font-semibold uppercase text-gold-muted">Email</p>
+        <a href={`mailto:${site.contact.email}`} class="text-cream/75 transition hover:text-ivory">
+          {site.contact.email}
+        </a>
+      </div>
+
+      <div>
+        <p class="mb-4 text-sm font-semibold uppercase text-gold-muted">Hours</p>
+        <div class="grid gap-1 text-cream/75">
+          {site.contact.footerHours.map((line) => <p>{line}</p>)}
+        </div>
+      </div>
+    </div>
+  </Container>
+  <Container class="border-t border-cream/15 py-6 text-sm text-cream/60" size="wide">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; {year} {site.name}. All rights reserved.</p>
+      <nav aria-label="Footer legal navigation">
+        <ul class="grid gap-3">
+          <li><a href={withBase("/")} class="transition hover:text-ivory">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </Container>
+</footer>
