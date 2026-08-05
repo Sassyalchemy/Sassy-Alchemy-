@@ -12,16 +12,19 @@ const categories = [
   {
     title: "Lashes & Brows",
     image: "/images/lashes-placeholder.jpg",
+    href: "/services/",
     description: "Soft definition, careful shaping, and beauty work that still feels like you."
   },
   {
     title: "Facials & Skin",
     image: "/images/facial-placeholder.jpg",
+    href: "/services/",
     description: "Restorative skin rituals for glow, balance, and an unrushed sense of care."
   },
   {
-    title: "Wellness",
+    title: "Sound & Healing Experiences",
     image: "/images/wellness-placeholder.jpg",
+    href: "/services/#wellness",
     description: "Grounding experiences created for nervous-system ease and intentional pause."
   }
 ];
@@ -45,6 +48,15 @@ const steps = [
 ];
 
 const testimonials = reviews.map((review) => review.excerpt);
+const homeHours = [
+  "Sunday: Closed",
+  "Monday: Closed",
+  "Tuesday: 9:00 AM–3:00 PM",
+  "Wednesday: 9:00 AM–3:00 PM",
+  "Thursday: 9:00 AM–3:00 PM",
+  "Friday: 9:00 AM–3:00 PM",
+  "Saturday: 10:00 AM–2:00 PM"
+];
 ---
 
 <BaseLayout
@@ -67,7 +79,7 @@ const testimonials = reviews.map((review) => review.excerpt);
 
     <Container class="relative flex min-h-[calc(100svh-5rem)] items-end pb-14 sm:pb-18 lg:pb-20" size="wide">
       <div class="max-w-4xl">
-        <p class="mb-5 text-xs font-semibold uppercase text-cream/80">Beauty, wellness, restoration</p>
+        <p class="mb-5 text-xs font-semibold uppercase text-cream/80">Beauty • Healing • Self-Care</p>
         <h1 class="max-w-4xl text-balance text-6xl leading-[0.9] text-ivory sm:text-7xl lg:text-8xl">
           Rituals for the face, body, and nervous system.
         </h1>
@@ -99,7 +111,7 @@ const testimonials = reviews.map((review) => review.excerpt);
       <div class="mt-12 grid gap-5 lg:grid-cols-3">
         {categories.map((category) => (
           <a
-            href={withBase("/services/")}
+            href={withBase(category.href)}
             class="image-frame group relative min-h-[32rem] overflow-hidden bg-forest-900 text-ivory transition duration-500 ease-editorial hover:-translate-y-1 focus-visible:-translate-y-1"
           >
             <img
@@ -159,15 +171,15 @@ const testimonials = reviews.map((review) => review.excerpt);
     <Container class="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-center" size="wide">
       <EditorialImage
         src="/images/services-placeholder.jpg"
-        alt="Alchemy Signature Facial placeholder"
+        alt="Mind Body Frequency Facial placeholder"
         ratio="landscape"
         class="h-[28rem] aspect-auto"
       />
       <div class="max-w-xl lg:justify-self-end">
-        <p class="text-xs font-semibold uppercase text-gold-deep">Featured service</p>
-        <h2 class="mt-5 text-5xl leading-none sm:text-6xl">Alchemy Signature Facial</h2>
+        <p class="text-xs font-semibold uppercase text-gold-deep">Featured experience</p>
+        <h2 class="mt-5 text-5xl leading-none sm:text-6xl">Mind • Body • Frequency Facial</h2>
         <p class="mt-6 text-lg leading-8 text-stone-600">
-          A deeply considered facial ritual created for visible glow, skin balance, and a calmer state of being.
+          A restorative facial experience combining personalized skincare, Reiki, and a private sound bath to leave you feeling refreshed, grounded, and deeply restored.
         </p>
         <Button href={withBase("/services/#facials-skin")} class="mt-8">Explore Facials</Button>
       </div>
@@ -182,7 +194,7 @@ const testimonials = reviews.map((review) => review.excerpt);
         <p class="mt-6 text-lg leading-8 text-cream/75">
           Immersive sessions for rest, release, and a slower return to yourself.
         </p>
-        <Button href={withBase("/services/#wellness")} variant="secondary" class="mt-8">Explore Wellness</Button>
+        <Button href={withBase("/services/#wellness")} variant="secondary" class="mt-8">Explore Healing</Button>
       </div>
       <EditorialImage
         src="/images/soundbath-placeholder.jpg"
@@ -194,18 +206,16 @@ const testimonials = reviews.map((review) => review.excerpt);
   </section>
 
   <section class="bg-ivory py-18 sm:py-22 lg:py-30">
-    <Container class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-      <EditorialImage src="/images/lisa-placeholder.jpg" alt="Lisa portrait placeholder" ratio="portrait" />
+    <Container class="grid gap-8 lg:grid-cols-[0.52fr_1.48fr] lg:items-center">
+      <EditorialImage src="/images/lisa-placeholder.jpg" alt="Lisa portrait placeholder" ratio="portrait" class="max-h-[30rem]" />
       <div class="max-w-2xl">
         <p class="text-xs font-semibold uppercase text-gold-deep">Meet Lisa</p>
-        <h2 class="mt-5 text-5xl leading-none sm:text-6xl">A grounded presence behind every appointment.</h2>
-        <div class="mt-8 grid gap-4 border-y border-stone-200 py-6 sm:grid-cols-3">
-          <p class="text-sm text-stone-600"><span class="block font-semibold uppercase text-forest-900">Role</span> Founder</p>
-          <p class="text-sm text-stone-600"><span class="block font-semibold uppercase text-forest-900">Specialty</span> Beauty & wellness</p>
-          <p class="text-sm text-stone-600"><span class="block font-semibold uppercase text-forest-900">Credentials</span> Licensed Esthetician</p>
-        </div>
+        <h2 class="mt-5 text-5xl leading-none sm:text-6xl">The heart behind Sassy Alchemy.</h2>
         <p class="mt-7 text-lg leading-8 text-stone-600">
-          Lisa’s introduction and professional credentials will be refined here with approved client copy.
+          Lisa is a licensed esthetician and certified Reiki and sound bath practitioner who brings personalized beauty and restorative care together in every experience.
+        </p>
+        <p class="mt-6 border-y border-stone-200 py-5 text-sm font-semibold uppercase tracking-[0.14em] text-forest-900">
+          Licensed Esthetician • Reiki Practitioner • Sound Bath Practitioner
         </p>
         <Button href={withBase("/about/")} variant="secondary" class="mt-8">Meet Lisa</Button>
       </div>
@@ -274,7 +284,9 @@ const testimonials = reviews.map((review) => review.excerpt);
           </div>
           <div>
             <p class="text-sm font-semibold uppercase text-forest-900">Hours</p>
-            <p class="mt-2 text-stone-600">{site.contact.hours}</p>
+            <div class="mt-2 grid gap-1 text-stone-600">
+              {homeHours.map((line) => <p>{line}</p>)}
+            </div>
           </div>
           <div>
             <p class="text-sm font-semibold uppercase text-forest-900">Accessibility</p>
