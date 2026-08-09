@@ -11,20 +11,26 @@ import { reviews } from "@content/reviews";
 const categories = [
   {
     title: "Lashes & Brows",
-    image: "/images/lashes-placeholder.jpg",
+    image: "/images/lashes-category.jpg",
     href: "/services/",
+    imageClass: "object-[60%_center]",
+    alt: "Lash tools, tweezers, towel, amber bottles, and olive branches in a warm workstation",
     description: "Soft definition, careful shaping, and beauty work that still feels like you."
   },
   {
     title: "Facials & Skin",
-    image: "/images/facial-placeholder.jpg",
+    image: "/images/facials-category.jpg",
     href: "/services/",
+    imageClass: "object-[68%_center]",
+    alt: "Skincare towels, serum bottles, bowls, and greenery in a warm spa setting",
     description: "Restorative skin rituals for glow, balance, and an unrushed sense of care."
   },
   {
     title: "Sound & Healing Experiences",
-    image: "/images/wellness-placeholder.jpg",
+    image: "/images/sound-healing-category.jpg",
     href: "/services/#wellness",
+    imageClass: "object-[68%_center]",
+    alt: "Crystal singing bowls in a warm sound bath studio",
     description: "Grounding experiences created for nervous-system ease and intentional pause."
   }
 ];
@@ -116,10 +122,13 @@ const homeHours = [
           >
             <img
               src={withBase(category.image)}
-              alt={`${category.title} placeholder`}
+              alt={"alt" in category && category.alt ? category.alt : `${category.title} placeholder`}
               loading="lazy"
               decoding="async"
-              class="absolute inset-0 h-full w-full object-cover opacity-80 transition duration-700 ease-editorial group-hover:scale-[1.035] group-hover:opacity-60"
+              class:list={[
+                "absolute inset-0 h-full w-full object-cover opacity-80 transition duration-700 ease-editorial group-hover:scale-[1.035] group-hover:opacity-60",
+                "imageClass" in category && category.imageClass
+              ]}
             />
             <div class="absolute inset-0 bg-gradient-to-t from-forest-900/90 via-forest-900/20 to-transparent"></div>
             <div class="relative flex h-full min-h-[32rem] flex-col justify-end p-7 sm:p-8">
@@ -207,7 +216,7 @@ const homeHours = [
 
   <section class="bg-ivory py-18 sm:py-22 lg:py-30">
     <Container class="grid gap-8 lg:grid-cols-[0.52fr_1.48fr] lg:items-center">
-      <EditorialImage src="/images/lisa-placeholder.jpg" alt="Lisa portrait placeholder" ratio="portrait" class="max-h-[30rem]" />
+      <EditorialImage src="/images/lisa-home.jpg" alt="Lisa in the Sassy Alchemy studio with singing bowls" ratio="portrait" class="max-h-[30rem]" />
       <div class="max-w-2xl">
         <p class="text-xs font-semibold uppercase text-gold-deep">Meet Lisa</p>
         <h2 class="mt-5 text-5xl leading-none sm:text-6xl">The heart behind Sassy Alchemy.</h2>
