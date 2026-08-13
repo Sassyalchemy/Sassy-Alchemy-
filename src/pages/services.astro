@@ -12,8 +12,9 @@ const categories = [
     title: "Quiet definition, shaped with precision.",
     intro:
       "Polished lash and brow services designed to frame the face with softness, balance, and restraint.",
-    image: "/images/lashes-placeholder.jpg",
-    imageAlt: "Lashes and brows service atmosphere placeholder",
+    image: "/images/lashes-brows-service.png",
+    imageAlt: "Professional lash extension tools and lash styling at Sassy Alchemy.",
+    imageClass: "object-[56%_center] sm:object-[54%_center] lg:object-[52%_center]",
     Icon: Eye,
     services: [
       {
@@ -59,8 +60,9 @@ const categories = [
     title: "Skin rituals with a restorative point of view.",
     intro:
       "Facial treatments are approached as both visible skin care and a calmer, more considered studio experience.",
-    image: "/images/facial-placeholder.jpg",
-    imageAlt: "Facials and skin care atmosphere placeholder",
+    image: "/images/facials-skin-service.png",
+    imageAlt: "Restorative facial treatment at Sassy Alchemy Beauty & Wellness Studio.",
+    imageClass: "object-[48%_center] sm:object-[46%_center] lg:object-[45%_center]",
     Icon: Sparkles,
     services: [
       {
@@ -103,8 +105,9 @@ const categories = [
     title: "Restorative care for the whole system.",
     intro:
       "Reiki, sound bath experiences, and integrated facial treatments created to support relaxation, energetic balance, and a deeper return to self.",
-    image: "/images/soundbath-placeholder.jpg",
-    imageAlt: "Wellness and sound bath atmosphere placeholder",
+    image: "/images/sound-healing-service.png",
+    imageAlt: "Singing bowls and sound healing instruments at Sassy Alchemy Beauty & Wellness Studio.",
+    imageClass: "object-[45%_center] sm:object-[46%_center] lg:object-[48%_center]",
     Icon: Leaf,
     peaceful: true,
     supportLine:
@@ -199,7 +202,10 @@ const categories = [
                 alt={category.imageAlt}
                 loading={categoryIndex === 0 ? "eager" : "lazy"}
                 decoding="async"
-                class="absolute inset-0 h-full w-full object-cover transition duration-700 ease-editorial group-hover:scale-[1.035]"
+                class:list={[
+                  "absolute inset-0 h-full w-full object-cover transition duration-700 ease-editorial group-hover:scale-[1.035]",
+                  "imageClass" in category && category.imageClass
+                ]}
               />
               <div class:list={["absolute inset-0", isDark ? "bg-forest-900/18" : "bg-forest-900/8"]}></div>
             </figure>
