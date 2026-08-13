@@ -17,34 +17,39 @@ const categories = [
     Icon: Eye,
     services: [
       {
-        title: "Classic Lash Extensions",
+        title: "Lash Extensions",
         description:
-          "A refined full set for natural-looking length and definition, applied with attention to comfort and proportion."
+          "Choose from classic, hybrid, volume, or mega volume lash extensions for a customized level of fullness, definition, and drama."
       },
       {
         title: "Lash Extension Fill",
         description:
-          "A maintenance appointment to refresh shed extensions, preserve shape, and keep the lash line looking seamless."
+          "Refresh and maintain your existing lash set. Choose from classic, hybrid, volume, or mega volume fills based on your current style."
       },
       {
         title: "Lash Lift & Tint",
         description:
-          "A low-maintenance lift and soft tint for lashes that appear more open, curved, and naturally enhanced."
+          "A low-maintenance lift and tint that makes natural lashes appear darker, longer, and more open."
       },
       {
         title: "Lash Tint",
         description:
-          "A subtle tinting service that deepens the look of natural lashes without the commitment of extensions."
+          "A subtle tint that deepens the appearance of natural lashes without extensions."
+      },
+      {
+        title: "Lash Removal",
+        description:
+          "Professional removal of lash extensions while helping protect the natural lashes."
       },
       {
         title: "Brow Tint",
         description:
-          "A soft color refresh to bring clarity and quiet structure to the natural brow."
+          "A soft color refresh that adds definition and structure to the natural brow."
       },
       {
         title: "Brow Shaping & Cleanup",
         description:
-          "A precise brow service that refines the natural shape and removes unwanted growth for a clean, balanced finish."
+          "Precise shaping and removal of unwanted growth for a clean, balanced finish."
       }
     ]
   },
@@ -59,19 +64,19 @@ const categories = [
     Icon: Sparkles,
     services: [
       {
-        title: "Alchemy Signature Facial",
+        title: "The Alchemy Facial",
         description:
-          "A deeply considered facial ritual created for glow, balance, and an unrushed sense of restoration."
+          "A personalized facial shaped around your skin’s needs, with carefully selected products and techniques for refreshed, balanced skin."
       },
       {
         title: "Customized Facial with Extractions",
         description:
-          "A tailored treatment shaped around skin needs, including careful extractions where appropriate."
+          "A tailored facial that includes careful extractions where appropriate to support clearer, smoother skin."
       },
       {
         title: "Back Facial",
         description:
-          "A restorative treatment for the back, supporting clearer, softer, and more cared-for skin."
+          "A restorative treatment for the back that supports clearer, softer, and more cared-for skin."
       },
       {
         title: "Microdermabrasion",
@@ -86,36 +91,69 @@ const categories = [
       {
         title: "Advanced Exfoliation Treatments",
         description:
-          "A curated collection of advanced exfoliation options selected according to skin condition and desired outcome.",
+          "A customized exfoliation option selected according to your skin’s needs.",
         details: ["Glycolic", "Lactic", "Pumpkin", "Vitamin C", "Hydrating", "Salicylic"]
       }
     ]
   },
   {
     id: "wellness",
-    eyebrow: "Wellness",
+    eyebrow: "Sound & Healing",
+    sectionName: "Sound & Healing Experiences",
     title: "Restorative care for the whole system.",
     intro:
-      "Peaceful, grounding services created for energetic ease, quiet reset, and a deeper return to self.",
+      "Reiki, sound bath experiences, and integrated facial treatments created to support relaxation, energetic balance, and a deeper return to self.",
     image: "/images/soundbath-placeholder.jpg",
     imageAlt: "Wellness and sound bath atmosphere placeholder",
     Icon: Leaf,
     peaceful: true,
-    services: [
+    supportLine:
+      "Explore gentle energy work, restorative sound, and skin rituals designed to care for both outer radiance and inner well-being.",
+    serviceGroups: [
       {
-        title: "Reiki",
-        description:
-          "A gentle energy session intended to support calm, balance, and a more settled internal state."
+        title: "Sound Bath & Reiki Experiences",
+        services: [
+          {
+            title: "30-Minute Reiki Session",
+            description:
+              "A gentle energy session designed to support relaxation, balance, and a more settled internal state."
+          },
+          {
+            title: "45-Minute Reiki Session",
+            description:
+              "A longer Reiki session offering additional time for relaxation, grounding, and energetic balance."
+          },
+          {
+            title: "Personal Sound Bath Radiance Session",
+            description:
+              "A private sound bath using soothing vibrations to encourage relaxation, release tension, and restore balance. This experience may also be offered as a mobile service."
+          },
+          {
+            title: "Group Sound Bath Radiance Session",
+            description:
+              "A shared sound bath experience designed to support collective relaxation, grounding, and energetic renewal. Mobile sessions may be available for private groups, events, and gatherings."
+          }
+        ]
       },
       {
-        title: "Reiki Facial",
-        description:
-          "A restorative facial experience paired with Reiki for skin care that feels peaceful and deeply held."
-      },
-      {
-        title: "Sound Bath Experiences",
-        description:
-          "An immersive listening ritual designed for rest, release, and nervous-system restoration."
+        title: "Integrated Facial Experiences",
+        services: [
+          {
+            title: "Reiki Infusion Healing Facial",
+            description:
+              "A personalized facial paired with Reiki to support radiant skin, deep relaxation, and emotional balance."
+          },
+          {
+            title: "Sound Bath Facial Experience",
+            description:
+              "A rejuvenating facial combined with soothing sound therapy for relaxation, skin vitality, and a calming sensory experience."
+          },
+          {
+            title: "Mind • Body • Frequency Facial",
+            description:
+              "A two-hour facial experience combining personalized skincare, Reiki, and a private sound bath to leave you feeling refreshed, grounded, and balanced."
+          }
+        ]
       }
     ]
   }
@@ -136,7 +174,7 @@ const categories = [
       </div>
       <p class="max-w-2xl text-lg leading-8 text-stone-600 lg:pb-2">
         Three focused paths through the Sassy Alchemy experience: refined lash and brow care,
-        restorative skin rituals, and peaceful wellness offerings.
+        restorative skin rituals, and immersive sound and healing experiences.
       </p>
     </Container>
   </section>
@@ -179,6 +217,11 @@ const categories = [
                 <p class:list={["text-xs font-semibold uppercase", isDark ? "text-gold-muted" : "text-gold-deep"]}>
                   {category.eyebrow}
                 </p>
+                {"sectionName" in category && category.sectionName && (
+                  <p class="mt-4 font-serif text-3xl leading-none text-cream sm:text-4xl">
+                    {category.sectionName}
+                  </p>
+                )}
                 <h2 class:list={["mt-5 max-w-3xl text-5xl leading-none sm:text-6xl", isDark && "text-ivory"]}>
                   {category.title}
                 </h2>
@@ -190,7 +233,7 @@ const categories = [
               {isDark && (
                 <div class="hidden border-l border-gold-muted/60 pl-6 text-cream/70 lg:block">
                   <p class="max-w-md">
-                    A quieter path through the studio: gentle energy work, sensory rest, and rituals that support deep exhale.
+                    {category.supportLine}
                   </p>
                 </div>
               )}
@@ -198,74 +241,124 @@ const categories = [
           </div>
 
           <div class="mt-12 lg:mt-16">
-            <div class:list={["divide-y", isDark ? "divide-cream/15 border-y border-cream/15" : "divide-stone-200 border-y border-stone-200"]}>
-              {category.services.map((service, serviceIndex) => (
-                <details class="service-panel group">
-                  <summary
-                    class:list={[
-                      "grid cursor-pointer list-none gap-5 py-7 transition duration-300 ease-editorial sm:grid-cols-[4rem_1fr_auto] sm:items-center lg:py-8",
-                      isDark ? "hover:bg-cream/[0.035]" : "hover:bg-ivory/70"
-                    ]}
-                  >
-                    <span class:list={["text-sm", isDark ? "text-cream/55" : "text-stone-400"]}>
-                      {String(serviceIndex + 1).padStart(2, "0")}
-                    </span>
-                    <span class:list={["font-serif text-3xl leading-tight sm:text-4xl", isDark ? "text-ivory" : "text-forest-900"]}>
-                      {service.title}
-                    </span>
-                    <span
-                      class:list={[
-                        "flex h-11 w-11 items-center justify-center border transition duration-300 ease-editorial group-hover:-translate-y-0.5 group-open:rotate-180",
-                        isDark ? "border-cream/20 bg-cream/[0.03] text-gold-muted group-hover:border-gold-muted" : "border-stone-200 bg-ivory text-gold-deep group-hover:border-forest-900"
-                      ]}
-                    >
-                      <ChevronDown aria-hidden="true" size={20} stroke-width={1.5} />
-                    </span>
-                  </summary>
+            {"serviceGroups" in category && category.serviceGroups ? (
+              <div class="grid gap-12">
+                {category.serviceGroups.map((group) => (
+                  <div>
+                    <h3 class="border-b border-cream/15 pb-5 font-serif text-4xl leading-none text-ivory sm:text-5xl">
+                      {group.title}
+                    </h3>
+                    <div class="divide-y divide-cream/15 border-b border-cream/15">
+                      {group.services.map((service, serviceIndex) => (
+                        <details class="service-panel group">
+                          <summary class="grid cursor-pointer list-none gap-5 py-7 transition duration-300 ease-editorial hover:bg-cream/[0.035] sm:grid-cols-[4rem_1fr_auto] sm:items-center lg:py-8">
+                            <span class="text-sm text-cream/55">
+                              {String(serviceIndex + 1).padStart(2, "0")}
+                            </span>
+                            <span class="font-serif text-3xl leading-tight text-ivory sm:text-4xl">
+                              {service.title}
+                            </span>
+                            <span class="flex h-11 w-11 items-center justify-center border border-cream/20 bg-cream/[0.03] text-gold-muted transition duration-300 ease-editorial group-hover:-translate-y-0.5 group-hover:border-gold-muted group-open:rotate-180">
+                              <ChevronDown aria-hidden="true" size={20} stroke-width={1.5} />
+                            </span>
+                          </summary>
 
-                  <div class="service-panel__content">
-                    <div class="service-panel__inner grid gap-7 pb-8 sm:grid-cols-[4rem_1fr] lg:pb-10">
-                      <div class="hidden sm:block"></div>
-                      <div class="max-w-3xl">
-                        <p class:list={["text-base leading-8 sm:text-lg", isDark ? "text-cream/75" : "text-stone-600"]}>
-                          {service.description}
-                        </p>
+                          <div class="service-panel__content">
+                            <div class="service-panel__inner grid gap-7 pb-8 sm:grid-cols-[4rem_1fr] lg:pb-10">
+                              <div class="hidden sm:block"></div>
+                              <div class="max-w-3xl">
+                                <p class="text-base leading-8 text-cream/75 sm:text-lg">
+                                  {service.description}
+                                </p>
 
-                        {"details" in service && service.details && (
-                          <div class="mt-6 flex flex-wrap gap-2">
-                            {service.details.map((detail) => (
-                              <span
-                                class:list={[
-                                  "border px-3 py-2 text-sm transition duration-300",
-                                  isDark ? "border-cream/15 text-cream/75" : "border-stone-200 bg-ivory text-stone-600 shadow-[0_8px_18px_rgba(16,42,32,0.035)]"
-                                ]}
-                              >
-                                {detail}
-                              </span>
-                            ))}
+                                <a
+                                  href={site.bookingUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  class="group/book mt-7 inline-flex min-h-12 items-center gap-3 border border-cream/30 bg-cream px-5 py-3 text-sm font-semibold uppercase text-forest-900 transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted focus-visible:-translate-y-0.5 active:translate-y-0"
+                                >
+                                  <span>Book This Service</span>
+                                  <ArrowUpRight aria-hidden="true" size={16} stroke-width={1.6} class="transition duration-300 ease-editorial group-hover/book:translate-x-0.5 group-hover/book:-translate-y-0.5" />
+                                </a>
+                              </div>
+                            </div>
                           </div>
-                        )}
-
-                        <a
-                          href={site.bookingUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class:list={[
-                            "group/book mt-7 inline-flex min-h-12 items-center gap-3 border px-5 py-3 text-sm font-semibold uppercase transition duration-300 ease-editorial hover:-translate-y-0.5 focus-visible:-translate-y-0.5 active:translate-y-0",
-                            isDark
-                              ? "border-cream/30 bg-cream text-forest-900 hover:border-gold-muted hover:bg-gold-muted"
-                              : "border-forest-900 bg-forest-900 text-ivory hover:border-gold-muted hover:bg-gold-muted hover:text-forest-900"
-                          ]}
-                        >
-                          <span>Book This Service</span>
-                          <ArrowUpRight aria-hidden="true" size={16} stroke-width={1.6} class="transition duration-300 ease-editorial group-hover/book:translate-x-0.5 group-hover/book:-translate-y-0.5" />
-                        </a>
-                      </div>
+                        </details>
+                      ))}
                     </div>
                   </div>
-                </details>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div class:list={["divide-y", isDark ? "divide-cream/15 border-y border-cream/15" : "divide-stone-200 border-y border-stone-200"]}>
+                {category.services.map((service, serviceIndex) => (
+                  <details class="service-panel group">
+                    <summary
+                      class:list={[
+                        "grid cursor-pointer list-none gap-5 py-7 transition duration-300 ease-editorial sm:grid-cols-[4rem_1fr_auto] sm:items-center lg:py-8",
+                        isDark ? "hover:bg-cream/[0.035]" : "hover:bg-ivory/70"
+                      ]}
+                    >
+                      <span class:list={["text-sm", isDark ? "text-cream/55" : "text-stone-400"]}>
+                        {String(serviceIndex + 1).padStart(2, "0")}
+                      </span>
+                      <span class:list={["font-serif text-3xl leading-tight sm:text-4xl", isDark ? "text-ivory" : "text-forest-900"]}>
+                        {service.title}
+                      </span>
+                      <span
+                        class:list={[
+                          "flex h-11 w-11 items-center justify-center border transition duration-300 ease-editorial group-hover:-translate-y-0.5 group-open:rotate-180",
+                          isDark ? "border-cream/20 bg-cream/[0.03] text-gold-muted group-hover:border-gold-muted" : "border-stone-200 bg-ivory text-gold-deep group-hover:border-forest-900"
+                        ]}
+                      >
+                        <ChevronDown aria-hidden="true" size={20} stroke-width={1.5} />
+                      </span>
+                    </summary>
+
+                    <div class="service-panel__content">
+                      <div class="service-panel__inner grid gap-7 pb-8 sm:grid-cols-[4rem_1fr] lg:pb-10">
+                        <div class="hidden sm:block"></div>
+                        <div class="max-w-3xl">
+                          <p class:list={["text-base leading-8 sm:text-lg", isDark ? "text-cream/75" : "text-stone-600"]}>
+                            {service.description}
+                          </p>
+
+                          {"details" in service && service.details && (
+                            <div class="mt-6 flex flex-wrap gap-2">
+                              {service.details.map((detail) => (
+                                <span
+                                  class:list={[
+                                    "border px-3 py-2 text-sm transition duration-300",
+                                    isDark ? "border-cream/15 text-cream/75" : "border-stone-200 bg-ivory text-stone-600 shadow-[0_8px_18px_rgba(16,42,32,0.035)]"
+                                  ]}
+                                >
+                                  {detail}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+
+                          <a
+                            href={site.bookingUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class:list={[
+                              "group/book mt-7 inline-flex min-h-12 items-center gap-3 border px-5 py-3 text-sm font-semibold uppercase transition duration-300 ease-editorial hover:-translate-y-0.5 focus-visible:-translate-y-0.5 active:translate-y-0",
+                              isDark
+                                ? "border-cream/30 bg-cream text-forest-900 hover:border-gold-muted hover:bg-gold-muted"
+                                : "border-forest-900 bg-forest-900 text-ivory hover:border-gold-muted hover:bg-gold-muted hover:text-forest-900"
+                            ]}
+                          >
+                            <span>Book This Service</span>
+                            <ArrowUpRight aria-hidden="true" size={16} stroke-width={1.6} class="transition duration-300 ease-editorial group-hover/book:translate-x-0.5 group-hover/book:-translate-y-0.5" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            )}
           </div>
         </Container>
       </section>

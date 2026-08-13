@@ -8,7 +8,7 @@ export const site = {
   image: "/images/hero-placeholder.jpg",
   bookingUrl: "https://www.vagaro.com/sassyalchemy",
   contact: {
-    email: "hello@sassyalchemy.com",
+    email: "sassyalchemist9@gmail.com",
     phone: "(775) 292-4615",
     phoneHref: "tel:+17752924615",
     address: "Sassy Alchemy, 1489 U.S. Hwy 395 N, Suites A & B, Gardnerville, NV 89410",
@@ -20,14 +20,14 @@ export const site = {
     ],
     hours: [
       "Monday: Closed",
-      "Tuesday: 9:00 AM–4:00 PM",
-      "Wednesday: 9:00 AM–4:00 PM",
-      "Thursday: 9:00 AM–4:00 PM",
-      "Friday: 9:00 AM–4:00 PM",
+      "Tuesday: 9:00 AM–3:00 PM",
+      "Wednesday: 9:00 AM–3:00 PM",
+      "Thursday: 9:00 AM–3:00 PM",
+      "Friday: 9:00 AM–3:00 PM",
       "Saturday: 10:00 AM–2:00 PM",
       "Sunday: Closed"
     ],
-    footerHours: ["Tue–Fri, 9–4", "Sat, 10–2", "Closed Sun–Mon"],
+    footerHours: ["Tue–Fri, 9–3", "Sat, 10–2", "Closed Sun–Mon"],
     parking: "Free parking is available.",
     accessibility: "Wheelchair accessible."
   },

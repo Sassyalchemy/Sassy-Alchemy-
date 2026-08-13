@@ -5,6 +5,7 @@ import { site } from "@content/site";
 import { withBase } from "@content/paths";
 
 const year = new Date().getFullYear();
+const tagline = "Personalized beauty and wellness experiences shaped with warmth, intention, and care.";
 ---
 
 <footer class="bg-forest-900 text-ivory">
@@ -12,14 +13,14 @@ const year = new Date().getFullYear();
     <div>
       <p class="font-serif text-5xl leading-none text-ivory sm:text-6xl">{site.name}</p>
       <p class="mt-6 max-w-lg text-base leading-8 text-cream/75">
-        Boutique beauty and wellness rituals shaped with warmth, restraint, and intention.
+        {tagline}
       </p>
       <Button href={site.bookingUrl} variant="secondary" class="mt-8">
         Book
       </Button>
     </div>
 
-    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-[0.8fr_0.8fr_1.35fr_0.9fr]">
       <div>
         <p class="mb-4 text-sm font-semibold uppercase text-gold-muted">Instagram</p>
         <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" class="text-cream/75 transition hover:text-ivory">
@@ -36,7 +37,7 @@ const year = new Date().getFullYear();
 
       <div>
         <p class="mb-4 text-sm font-semibold uppercase text-gold-muted">Email</p>
-        <a href={`mailto:${site.contact.email}`} class="text-cream/75 transition hover:text-ivory">
+        <a href={`mailto:${site.contact.email}`} class="break-words text-cream/75 transition hover:text-ivory">
           {site.contact.email}
         </a>
       </div>
