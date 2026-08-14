@@ -12,8 +12,9 @@ const categories = [
     title: "Quiet definition, shaped with precision.",
     intro:
       "Polished lash and brow services designed to frame the face with softness, balance, and restraint.",
-    image: "/images/lashes-placeholder.jpg",
-    imageAlt: "Lashes and brows service atmosphere placeholder",
+    image: "/images/lashes-brows-service.png",
+    imageAlt: "Professional lash extension tools and lash styling at Sassy Alchemy.",
+    imageClass: "object-[56%_center] sm:object-[54%_center] lg:object-[52%_center]",
     Icon: Eye,
     services: [
       {
@@ -59,8 +60,9 @@ const categories = [
     title: "Skin rituals with a restorative point of view.",
     intro:
       "Facial treatments are approached as both visible skin care and a calmer, more considered studio experience.",
-    image: "/images/facial-placeholder.jpg",
-    imageAlt: "Facials and skin care atmosphere placeholder",
+    image: "/images/facials-skin-service.png",
+    imageAlt: "Restorative facial treatment at Sassy Alchemy Beauty & Wellness Studio.",
+    imageClass: "object-[48%_center] sm:object-[46%_center] lg:object-[45%_center]",
     Icon: Sparkles,
     services: [
       {
@@ -103,8 +105,9 @@ const categories = [
     title: "Restorative care for the whole system.",
     intro:
       "Reiki, sound bath experiences, and integrated facial treatments created to support relaxation, energetic balance, and a deeper return to self.",
-    image: "/images/soundbath-placeholder.jpg",
-    imageAlt: "Wellness and sound bath atmosphere placeholder",
+    image: "/images/sound-healing-service.png",
+    imageAlt: "Singing bowls and sound healing instruments at Sassy Alchemy Beauty & Wellness Studio.",
+    imageClass: "object-[45%_center] sm:object-[46%_center] lg:object-[48%_center]",
     Icon: Leaf,
     peaceful: true,
     supportLine:
@@ -199,7 +202,10 @@ const categories = [
                 alt={category.imageAlt}
                 loading={categoryIndex === 0 ? "eager" : "lazy"}
                 decoding="async"
-                class="absolute inset-0 h-full w-full object-cover transition duration-700 ease-editorial group-hover:scale-[1.035]"
+                class:list={[
+                  "absolute inset-0 h-full w-full object-cover transition duration-700 ease-editorial group-hover:scale-[1.035]",
+                  "imageClass" in category && category.imageClass
+                ]}
               />
               <div class:list={["absolute inset-0", isDark ? "bg-forest-900/18" : "bg-forest-900/8"]}></div>
             </figure>
@@ -364,6 +370,31 @@ const categories = [
       </section>
     );
   })}
+
+  <section id="visiting-practitioner" class="bg-ivory">
+    <Container class="py-14 sm:py-18 lg:py-20">
+      <div class="mx-auto max-w-4xl border-y border-gold-muted/40 py-10 text-center sm:py-12">
+        <Sparkles aria-hidden="true" size={22} stroke-width={1.25} class="mx-auto text-gold-deep/70" />
+        <p class="mt-6 text-xs font-semibold uppercase text-gold-deep">Visiting Practitioner</p>
+        <h2 class="mt-4 text-4xl leading-none sm:text-5xl">Tarot &amp; Intuitive Readings</h2>
+        <p class="mt-3 font-serif text-2xl leading-none text-forest-900/80 sm:text-3xl">
+          with StaySea of The Sea Wytch
+        </p>
+        <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
+          A little space for intuition, reflection, and curiosity. StaySea joins Sassy Alchemy for tarot readings, workshops, and select metaphysical experiences throughout the year.
+        </p>
+        <a
+          href="https://theseawytch.square.site"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group/book mt-8 inline-flex min-h-12 items-center gap-3 border border-forest-900 bg-transparent px-5 py-3 text-sm font-semibold uppercase text-forest-900 transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted focus-visible:-translate-y-0.5 active:translate-y-0"
+        >
+          <span>Explore The Sea Wytch</span>
+          <ArrowUpRight aria-hidden="true" size={16} stroke-width={1.6} class="transition duration-300 ease-editorial group-hover/book:translate-x-0.5 group-hover/book:-translate-y-0.5" />
+        </a>
+      </div>
+    </Container>
+  </section>
 
   <section class="bg-ivory">
     <Container class="py-16 text-center sm:py-20">
