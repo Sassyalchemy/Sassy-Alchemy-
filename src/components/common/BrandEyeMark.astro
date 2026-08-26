@@ -1,0 +1,41 @@
+---
+type Props = {
+  class?: string;
+};
+
+const { class: className = "" } = Astro.props;
+---
+
+<svg
+  aria-hidden="true"
+  viewBox="0 0 96 70"
+  fill="none"
+  class:list={["brand-eye-mark", className]}
+>
+  <defs>
+    <linearGradient id="brand-eye-gold" x1="16" y1="10" x2="82" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d8b660" />
+      <stop offset="0.46" stop-color="#b8995f" />
+      <stop offset="1" stop-color="#8f6b2f" />
+    </linearGradient>
+    <filter id="brand-eye-soft-glow" x="-12" y="-12" width="120" height="94" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.15" flood-color="#d8b660" flood-opacity="0.24" />
+    </filter>
+  </defs>
+  <path
+    d="M8 42C18.5 24.5 31.6 16 48 16C64.4 16 77.5 24.5 88 42C77.5 55.4 64.4 62 48 62C31.6 62 18.5 55.4 8 42Z"
+    stroke="url(#brand-eye-gold)"
+    stroke-width="5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#brand-eye-soft-glow)"
+  />
+  <circle cx="48" cy="42" r="12" fill="url(#brand-eye-gold)" filter="url(#brand-eye-soft-glow)" />
+  <path
+    d="M48 3V16M28 9L35 22M68 9L61 22M13 21L25 31M83 21L71 31"
+    stroke="url(#brand-eye-gold)"
+    stroke-width="5"
+    stroke-linecap="round"
+    filter="url(#brand-eye-soft-glow)"
+  />
+</svg>
