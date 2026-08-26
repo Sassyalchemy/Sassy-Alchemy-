@@ -9,9 +9,9 @@ const categories = [
   {
     id: "lashes-brows",
     eyebrow: "Lashes & Brows",
-    title: "Quiet definition, shaped with precision.",
+    title: "Your lashes, just better.",
     intro:
-      "Polished lash and brow services designed to frame the face with softness, balance, and restraint.",
+      "Extensions, lifts, tints and brow care — polished, pretty, and still completely you.",
     image: "/images/lashes-brows-service.png",
     imageAlt: "Professional lash extension tools and lash styling at Sassy Alchemy.",
     imageClass: "object-[56%_center] sm:object-[54%_center] lg:object-[52%_center]",
@@ -57,9 +57,9 @@ const categories = [
   {
     id: "facials-skin",
     eyebrow: "Facials & Skin",
-    title: "Skin rituals with a restorative point of view.",
+    title: "Skin rituals that help you glow and exhale.",
     intro:
-      "Facial treatments are approached as both visible skin care and a calmer, more considered studio experience.",
+      "Facial treatments are approached as skin care, self-care, and a little time to come back to yourself.",
     image: "/images/facials-skin-service.png",
     imageAlt: "Restorative facial treatment at Sassy Alchemy Beauty & Wellness Studio.",
     imageClass: "object-[48%_center] sm:object-[46%_center] lg:object-[45%_center]",
@@ -102,16 +102,16 @@ const categories = [
     id: "wellness",
     eyebrow: "Sound & Healing",
     sectionName: "Sound & Healing Experiences",
-    title: "Restorative care for the whole system.",
+    title: "Come back to yourself.",
     intro:
-      "Reiki, sound bath experiences, and integrated facial treatments created to support relaxation, energetic balance, and a deeper return to self.",
+      "Reiki, sound baths and facial experiences for slowing down, breathing deeper, and giving your energy a little care too.",
     image: "/images/sound-healing-service.png",
     imageAlt: "Singing bowls and sound healing instruments at Sassy Alchemy Beauty & Wellness Studio.",
     imageClass: "object-[45%_center] sm:object-[46%_center] lg:object-[48%_center]",
     Icon: Leaf,
     peaceful: true,
     supportLine:
-      "Explore gentle energy work, restorative sound, and skin rituals designed to care for both outer radiance and inner well-being.",
+      "Explore gentle energy work, soothing sound, and skin rituals that care for your outer glow and your inner steadiness.",
     serviceGroups: [
       {
         title: "Sound Bath & Reiki Experiences",
@@ -172,12 +172,11 @@ const categories = [
       <div>
         <p class="text-xs font-semibold uppercase text-gold-deep">Services</p>
         <h1 class="mt-5 max-w-4xl text-balance text-6xl leading-[0.92] sm:text-7xl lg:text-8xl">
-          Beauty and wellness, composed with intention.
+          Pick what feels good.
         </h1>
       </div>
       <p class="max-w-2xl text-lg leading-8 text-stone-600 lg:pb-2">
-        Three focused paths through the Sassy Alchemy experience: refined lash and brow care,
-        restorative skin rituals, and immersive sound and healing experiences.
+        Lashes, skin, Reiki, sound — maybe a little of everything. Take a look around and find what’s calling you.
       </p>
     </Container>
   </section>
@@ -223,6 +222,27 @@ const categories = [
                 <p class:list={["text-xs font-semibold uppercase", isDark ? "text-gold-muted" : "text-gold-deep"]}>
                   {category.eyebrow}
                 </p>
+                {isDark && (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 58 26"
+                    class="mt-4 h-7 w-16 text-gold-muted/85"
+                    fill="none"
+                  >
+                    <path
+                      d="M10.5 13.5c6.2-1.8 10.2-5.8 12-12 1.8 6.2 5.8 10.2 12 12-6.2 1.8-10.2 5.8-12 12-1.8-6.2-5.8-10.2-12-12Z"
+                      stroke="currentColor"
+                      stroke-width="1.35"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M43.5 7.5c2.1-.6 3.4-1.9 4-4 .6 2.1 1.9 3.4 4 4-2.1.6-3.4 1.9-4 4-.6-2.1-1.9-3.4-4-4Z"
+                      stroke="currentColor"
+                      stroke-width="1.1"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                )}
                 {"sectionName" in category && category.sectionName && (
                   <p class="mt-4 font-serif text-3xl leading-none text-cream sm:text-4xl">
                     {category.sectionName}
@@ -372,26 +392,82 @@ const categories = [
   })}
 
   <section id="visiting-practitioner" class="bg-ivory">
-    <Container class="py-14 sm:py-18 lg:py-20">
-      <div class="mx-auto max-w-4xl border-y border-gold-muted/40 py-10 text-center sm:py-12">
-        <Sparkles aria-hidden="true" size={22} stroke-width={1.25} class="mx-auto text-gold-deep/70" />
-        <p class="mt-6 text-xs font-semibold uppercase text-gold-deep">Visiting Practitioner</p>
-        <h2 class="mt-4 text-4xl leading-none sm:text-5xl">Tarot &amp; Intuitive Readings</h2>
-        <p class="mt-3 font-serif text-2xl leading-none text-forest-900/80 sm:text-3xl">
-          with StaySea of The Sea Wytch
-        </p>
-        <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
-          A little space for intuition, reflection, and curiosity. StaySea joins Sassy Alchemy for tarot readings, workshops, and select metaphysical experiences throughout the year.
-        </p>
-        <a
-          href="https://theseawytch.square.site"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group/book mt-8 inline-flex min-h-12 items-center gap-3 border border-forest-900 bg-transparent px-5 py-3 text-sm font-semibold uppercase text-forest-900 transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted focus-visible:-translate-y-0.5 active:translate-y-0"
-        >
-          <span>Explore The Sea Wytch</span>
-          <ArrowUpRight aria-hidden="true" size={16} stroke-width={1.6} class="transition duration-300 ease-editorial group-hover/book:translate-x-0.5 group-hover/book:-translate-y-0.5" />
-        </a>
+    <Container class="py-12 sm:py-14 lg:py-16" size="wide">
+      <div class="mx-auto grid max-w-5xl gap-7 border-y border-gold-muted/40 bg-cream p-5 sm:p-6 lg:grid-cols-[0.28fr_0.72fr] lg:items-center lg:p-7">
+        <figure class="image-frame group relative mx-auto aspect-[4/5] w-full max-w-[18rem] overflow-hidden bg-stone-100 sm:max-w-[20rem] lg:mx-0 lg:max-w-none">
+          <img
+            src={withBase("/images/staysea-visiting-practitioner.jpg")}
+            alt="StaySea of The Sea Wytch, visiting practitioner at Sassy Alchemy."
+            loading="lazy"
+            decoding="async"
+            class="absolute inset-0 h-full w-full object-cover object-[50%_34%] transition duration-700 ease-editorial group-hover:scale-[1.025]"
+          />
+          <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-forest-900/12 via-transparent to-ivory/10"></div>
+        </figure>
+
+        <div class="relative py-2 lg:px-3">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 98 40"
+            class="mb-4 h-7 w-20 text-gold-deep/70"
+            fill="none"
+          >
+            <path
+              d="M2 29c18.5-13.5 41-16.7 68-9.6 8 2.1 16.6 2.3 25.8.6"
+              stroke="currentColor"
+              stroke-width="1.15"
+              stroke-linecap="round"
+            />
+            <path
+              d="M20.5 10.5c3.6-1.1 5.9-3.4 7-7 1.1 3.6 3.4 5.9 7 7-3.6 1.1-5.9 3.4-7 7-1.1-3.6-3.4-5.9-7-7Z"
+              stroke="currentColor"
+              stroke-width="1.15"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M77 9c2.1-.6 3.4-1.9 4-4 .6 2.1 1.9 3.4 4 4-2.1.6-3.4 1.9-4 4-.6-2.1-1.9-3.4-4-4Z"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <p class="font-serif text-4xl leading-none text-forest-900 sm:text-5xl">Tarot</p>
+          <p class="mt-4 text-xs font-semibold uppercase text-gold-deep">Visiting Practitioner</p>
+          <h2 class="mt-3 max-w-2xl text-3xl leading-none sm:text-4xl">
+            StaySea • The Sea Wytch
+          </h2>
+          <p class="mt-3 font-serif text-xl italic leading-snug text-gold-deep sm:text-2xl">
+            Tarot, astrology &amp; a little everyday magic.
+          </p>
+
+          <div class="mt-5 grid max-w-3xl gap-3 text-base leading-7 text-stone-600">
+            <p>
+              StaySea is the creator behind The Sea Wytch, a modern metaphysical practice rooted in tarot, astrology, apothecary magic, and intentional living.
+            </p>
+            <p>
+              Through readings, workshops, and hands-on experiences, she invites people to explore their intuition, creativity, and personal magic in a way that feels approachable and practical.
+            </p>
+          </div>
+
+          <p class="mt-5 border-y border-gold-muted/35 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-forest-900">
+            Tarot Readings • Astrology • Workshops • Apothecary
+          </p>
+
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-stone-600">
+            Find StaySea at Sassy Alchemy for select readings, workshops &amp; special events throughout the year.
+          </p>
+
+          <a
+            href="https://theseawytch.square.site"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group/book mt-6 inline-flex min-h-11 items-center gap-3 border border-forest-900 bg-transparent px-4 py-3 text-sm font-semibold uppercase text-forest-900 transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted focus-visible:-translate-y-0.5 active:translate-y-0"
+          >
+            <span>Explore The Sea Wytch</span>
+            <ArrowUpRight aria-hidden="true" size={16} stroke-width={1.6} class="transition duration-300 ease-editorial group-hover/book:translate-x-0.5 group-hover/book:-translate-y-0.5" />
+          </a>
+        </div>
       </div>
     </Container>
   </section>
@@ -400,10 +476,10 @@ const categories = [
     <Container class="py-16 text-center sm:py-20">
       <HandHeart aria-hidden="true" size={28} stroke-width={1.4} class="mx-auto text-gold-deep" />
       <h2 class="mx-auto mt-6 max-w-3xl text-5xl leading-none sm:text-6xl">
-        Choose the ritual that meets you where you are.
+        What are you feeling?
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-stone-600">
-        Final timing, pricing, and booking details live through Vagaro.
+        Take your pick. Timing, pricing and booking are all handled through Vagaro.
       </p>
       <a
         href={site.bookingUrl}

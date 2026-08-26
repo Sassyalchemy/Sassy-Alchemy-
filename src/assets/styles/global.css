@@ -123,6 +123,31 @@ picture {
     animation: image-settle 900ms var(--ease-soft) both;
   }
 
+  .brand-eye-mark {
+    display: inline-block;
+    transform-origin: center;
+    transition: transform 500ms var(--ease-editorial);
+  }
+
+  .magic-line::after {
+    content: "";
+    display: block;
+    width: 5.4rem;
+    height: 0.62rem;
+    margin-top: 0.72rem;
+    border-bottom: 2px solid rgba(184, 153, 95, 0.82);
+    border-radius: 999px 60% 999px 45%;
+    transform: rotate(-1.8deg);
+  }
+
+  .gold-pen-mark {
+    width: 5rem;
+    height: 0.7rem;
+    border-bottom: 2px solid rgba(184, 153, 95, 0.72);
+    border-radius: 55% 999px 40% 999px;
+    transform: rotate(-2deg);
+  }
+
 }
 
 @keyframes image-settle {

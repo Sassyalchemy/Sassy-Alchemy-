@@ -15,18 +15,18 @@ const credentials = [
 
 const philosophy = [
   {
-    title: "Quiet Precision",
-    text: "Beauty work should feel refined, balanced, and personal without becoming overdone.",
+    title: "Thoughtful Beauty",
+    text: "Beauty work should feel refined, balanced, personal, and never overdone.",
     Icon: Sparkles
   },
   {
     title: "Whole-Person Care",
-    text: "The studio experience considers comfort, energy, pacing, and the way someone feels afterward.",
+    text: "The studio experience makes room for comfort, energy, pacing, and how you feel afterward.",
     Icon: Heart
   },
   {
-    title: "Restorative Atmosphere",
-    text: "Every detail is intended to support calm: the pace, the tone, the visuals, and the room around the service.",
+    title: "Good Energy",
+    text: "Every detail is meant to support calm: the pace, the tone, the visuals, and the room around the service.",
     Icon: Leaf
   }
 ];
@@ -52,30 +52,31 @@ const philosophy = [
 
   <section class="bg-cream py-18 sm:py-22 lg:py-30">
     <Container class="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-center" size="wide">
-      <EditorialImage src="/images/lisa-about.jpg" alt="Lisa in the Sassy Alchemy studio with singing bowls" ratio="portrait" class="h-[34rem] aspect-auto" />
+      <EditorialImage src="/images/lisa-about.jpg" alt="Lisa in the Sassy Alchemy studio with a white sound bowl" ratio="portrait" class="h-[34rem] aspect-auto [&>img]:object-[50%_38%]" />
       <div class="max-w-2xl">
         <p class="text-xs font-semibold uppercase text-gold-deep">Meet Lisa</p>
-        <h2 class="mt-5 text-5xl leading-none sm:text-6xl">The presence behind Sassy Alchemy.</h2>
+        <h2 class="mt-5 text-5xl leading-none sm:text-6xl">Meet the magic-maker.</h2>
+        <span aria-hidden="true" class="gold-pen-mark mt-5 block"></span>
         <div class="mt-7 grid gap-5 text-lg leading-8 text-stone-600">
           <p>
-            My journey into esthetics began with my own skin struggles and the confidence challenges that came with them. What started as a desire to better understand my own skin quickly became a passion for helping others feel comfortable and confident in their own skin.
+            My journey into esthetics began with my own skin struggles and the confidence challenges that came with them. What started as a desire to better understand my own skin became a passion for helping others feel comfortable and confident in their own skin.
           </p>
           <p>
-            My love of art and detailed work naturally led me to lash artistry. More than fourteen years later, I still love the creativity behind every set and the confidence that comes from watching a client see themselves in a new light.
+            My love of art and detailed work naturally led me to lash artistry. More than fourteen years later, I still love the creativity behind every set and the moment a client sees themselves in a new light.
           </p>
           <p>
-            Over time, my work expanded into Reiki and sound healing as I became increasingly passionate about caring for how people feel—not just how they look. Through these experiences, I offer clients a peaceful space to slow down, reconnect with themselves, and leave feeling more balanced.
+            Over time, my work expanded into Reiki and sound healing as I became more passionate about caring for how people feel, not just how they look. Through these experiences, I offer clients a peaceful space to slow down, reconnect with themselves, and leave feeling more balanced.
           </p>
           <p>
-            Sassy Alchemy was created from the belief that beauty and wellness belong together. Whether you visit for lashes, skincare, Reiki, or sound healing, my hope is that you leave feeling more confident, grounded, and deeply cared for.
+            Sassy Alchemy was created from the belief that beauty and wellness belong together. Whether you visit for lashes, skincare, Reiki, or sound healing, my hope is that you leave feeling more confident, grounded, deeply cared for, and a little more like yourself.
           </p>
         </div>
-        <div class="surface-soft mt-8 p-6">
+        <div class="mt-8 border-y border-gold-muted/45 py-6">
           <div class="flex items-center gap-3">
             <Award aria-hidden="true" size={22} stroke-width={1.4} class="text-gold-deep" />
             <p class="text-sm font-semibold uppercase text-forest-900">Credentials</p>
           </div>
-          <ul class="mt-5 grid gap-3 text-stone-600">
+          <ul class="mt-5 grid gap-3 text-stone-600 sm:grid-cols-2">
             {credentials.map((credential) => (
               <li>{credential}</li>
             ))}

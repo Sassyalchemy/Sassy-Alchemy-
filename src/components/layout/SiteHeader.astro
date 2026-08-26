@@ -1,5 +1,6 @@
 ---
 import MobileNav from "@components/layout/MobileNav.astro";
+import BrandEyeMark from "@components/common/BrandEyeMark.astro";
 import { navigationItems } from "@content/navigation";
 import { site } from "@content/site";
 import { withBase } from "@content/paths";
@@ -20,9 +21,12 @@ function isActive(href: string) {
 
 <header class="fixed inset-x-0 top-0 z-50 border-b border-stone-200/75 bg-cream/90 shadow-[0_8px_30px_rgba(16,42,32,0.035)] backdrop-blur-md">
   <div class="mx-auto flex min-h-20 max-w-site items-center justify-between px-5 sm:px-8 lg:px-10">
-    <a href={withBase("/")} class="group inline-flex flex-col leading-none transition duration-300 ease-editorial hover:-translate-y-px" aria-label={`${site.name} home`}>
-      <span class="font-serif text-[1.94rem] text-forest-900 transition group-hover:text-gold-deep sm:text-[2.04rem]">{site.name}</span>
-      <span class="mt-1 text-[0.81rem] uppercase text-stone-600">Beauty & Wellness Studio</span>
+    <a href={withBase("/")} class="group inline-flex items-center gap-3 leading-none transition duration-300 ease-editorial hover:-translate-y-px" aria-label={`${site.name} home`}>
+      <BrandEyeMark class="h-9 w-12 shrink-0 transition duration-300 ease-editorial group-hover:-rotate-2 group-hover:brightness-110 sm:h-10 sm:w-14" />
+      <span class="inline-flex flex-col">
+        <span class="font-serif text-[1.94rem] text-forest-900 transition group-hover:text-gold-deep sm:text-[2.04rem]">{site.name}</span>
+        <span class="mt-1 text-[0.81rem] uppercase text-stone-600">Beauty & Wellness Studio</span>
+      </span>
     </a>
 
     <nav class="hidden lg:block" aria-label="Main navigation">
