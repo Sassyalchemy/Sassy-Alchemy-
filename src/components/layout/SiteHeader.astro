@@ -24,7 +24,7 @@ function isActive(href: string) {
     <a href={withBase("/")} class="group inline-flex items-center gap-3 leading-none transition duration-300 ease-editorial hover:-translate-y-px" aria-label={`${site.name} home`}>
       <BrandEyeMark class="h-9 w-12 shrink-0 transition duration-300 ease-editorial group-hover:-rotate-2 group-hover:brightness-110 sm:h-10 sm:w-14" />
       <span class="inline-flex flex-col">
-        <span class="font-serif text-[1.94rem] text-forest-900 transition group-hover:text-gold-deep sm:text-[2.04rem]">{site.name}</span>
+        <span class="font-serif text-[1.94rem] text-forest-500 transition group-hover:text-gold-deep sm:text-[2.04rem]">{site.name}</span>
         <span class="mt-1 text-[0.81rem] uppercase text-stone-600">Beauty & Wellness Studio</span>
       </span>
     </a>
@@ -37,8 +37,8 @@ function isActive(href: string) {
               href={withBase(item.href)}
               aria-current={isActive(item.href) ? "page" : undefined}
               class:list={[
-                "relative py-2 text-sm font-medium uppercase text-stone-600 transition duration-300 ease-editorial after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-gold-muted after:transition after:duration-300 hover:text-forest-900 hover:after:scale-x-100",
-                isActive(item.href) && "text-forest-900 after:scale-x-100"
+                "relative py-2 text-sm font-medium uppercase text-stone-600 transition duration-300 ease-editorial after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-gold-muted after:transition after:duration-300 hover:text-forest-500 hover:after:scale-x-100",
+                isActive(item.href) && "text-forest-500 after:scale-x-100"
               ]}
             >
               {item.label}

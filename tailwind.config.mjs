@@ -13,11 +13,11 @@ export default {
     extend: {
       colors: {
         forest: {
-          50: "#edf3ee",
-          100: "#d7e4d9",
-          300: "#8fad97",
-          500: "#496f55",
-          700: "#244734",
+          50: "#102a20",
+          100: "#102a20",
+          300: "#102a20",
+          500: "#102a20",
+          700: "#102a20",
           900: "#102a20"
         },
         cream: "#f7f1e7",
@@ -32,7 +32,7 @@ export default {
           400: "#a99f91",
           600: "#746b60"
         },
-        charcoal: "#242522"
+        charcoal: "#102a20"
       },
       fontFamily: {
         serif: ["Georgia", "Cambria", "Times New Roman", "serif"],

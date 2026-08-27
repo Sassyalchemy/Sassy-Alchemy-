@@ -68,7 +68,7 @@ const visitDetails = [
           {visitDetails.map(({ title, value, Icon }) => (
             <div class="border-t border-stone-200 pt-5 transition duration-500 ease-editorial hover:border-gold-muted">
               <Icon aria-hidden="true" size={21} stroke-width={1.4} class="text-gold-deep" />
-              <p class="mt-4 text-sm font-semibold uppercase text-forest-900">{title}</p>
+              <p class="mt-4 text-sm font-semibold uppercase text-forest-500">{title}</p>
               {Array.isArray(value) ? (
                 <div class="mt-2 grid gap-1 text-stone-600">
                   {value.map((line) => <p>{line}</p>)}
@@ -89,15 +89,15 @@ const visitDetails = [
         <p class="text-xs font-semibold uppercase text-gold-deep">Contact</p>
         <h2 class="mt-5 text-5xl leading-none sm:text-6xl">Connect with the studio.</h2>
         <div class="mt-10 grid gap-5 border-y border-stone-200 py-7">
-          <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" class="group/contact flex items-center gap-4 text-stone-600 transition duration-300 ease-editorial hover:translate-x-1 hover:text-forest-900">
+          <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" class="group/contact flex items-center gap-4 text-stone-600 transition duration-300 ease-editorial hover:translate-x-1 hover:text-forest-500">
             <AtSign aria-hidden="true" size={21} stroke-width={1.4} class="text-gold-deep" />
             <span>{site.social.instagramHandle}</span>
           </a>
-          <a href={site.contact.phoneHref} class="group/contact flex items-center gap-4 text-stone-600 transition duration-300 ease-editorial hover:translate-x-1 hover:text-forest-900">
+          <a href={site.contact.phoneHref} class="group/contact flex items-center gap-4 text-stone-600 transition duration-300 ease-editorial hover:translate-x-1 hover:text-forest-500">
             <Phone aria-hidden="true" size={21} stroke-width={1.4} class="text-gold-deep" />
             <span>{site.contact.phone}</span>
           </a>
-          <a href={`mailto:${site.contact.email}`} class="group/contact flex items-center gap-4 text-stone-600 transition duration-300 ease-editorial hover:translate-x-1 hover:text-forest-900">
+          <a href={`mailto:${site.contact.email}`} class="group/contact flex items-center gap-4 text-stone-600 transition duration-300 ease-editorial hover:translate-x-1 hover:text-forest-500">
             <Mail aria-hidden="true" size={21} stroke-width={1.4} class="text-gold-deep" />
             <span>{site.contact.email}</span>
           </a>
@@ -105,8 +105,8 @@ const visitDetails = [
         <a
           href={site.bookingUrl}
           target="_blank"
-          rel="noreferrer"
-          class="group/book mt-8 inline-flex min-h-12 items-center gap-3 border border-forest-900 bg-forest-900 px-5 py-3 text-sm font-semibold uppercase text-ivory shadow-[0_12px_28px_rgba(16,42,32,0.12)] transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted hover:text-forest-900 focus-visible:-translate-y-0.5 active:translate-y-0"
+          rel="noopener noreferrer"
+          class="group/book mt-8 inline-flex min-h-12 items-center gap-3 border border-forest-900 bg-forest-900 px-5 py-3 text-sm font-semibold uppercase text-ivory shadow-[0_12px_28px_rgba(16,42,32,0.12)] transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted hover:text-forest-500 focus-visible:-translate-y-0.5 active:translate-y-0"
         >
           <span>Book</span>
           <ArrowUpRight aria-hidden="true" size={16} stroke-width={1.6} class="transition duration-300 ease-editorial group-hover/book:translate-x-0.5 group-hover/book:-translate-y-0.5" />
@@ -121,11 +121,11 @@ const visitDetails = [
         aria-label="Open Sassy Alchemy in Google Maps"
       >
         <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,42,32,0.12)_1px,transparent_1px),linear-gradient(rgba(16,42,32,0.12)_1px,transparent_1px)] bg-[size:56px_56px]"></div>
-        <div class="absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gold-muted bg-ivory text-forest-900 shadow-soft transition duration-500 group-hover/map:scale-105">
+        <div class="absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gold-muted bg-ivory text-forest-500 shadow-soft transition duration-500 group-hover/map:scale-105">
           <MapPin aria-hidden="true" size={30} stroke-width={1.4} />
         </div>
         <div class="absolute bottom-6 left-6 right-6 border border-stone-200 bg-ivory/90 p-5 backdrop-blur">
-          <p class="text-sm font-semibold uppercase text-forest-900">Google Maps</p>
+          <p class="text-sm font-semibold uppercase text-forest-500">Google Maps</p>
           <p class="mt-2 text-sm text-stone-600">Open in Google Maps</p>
         </div>
       </a>

@@ -5,7 +5,7 @@ export const site = {
     "A calm, elevated beauty and wellness studio offering lash artistry, facials, restorative rituals, and sound bath experiences.",
   url: "https://sassyalchemy.github.io/Sassy-Alchemy-",
   locale: "en_US",
-  image: "/images/hero-placeholder.jpg",
+  image: "/images/home-hero-sound-bath.png",
   bookingUrl: "https://www.vagaro.com/sassyalchemy",
   contact: {
     email: "sassyalchemist9@gmail.com",
