@@ -12,9 +12,9 @@ const categories = [
     title: "Your lashes, just better.",
     intro:
       "Extensions, lifts, tints and brow care — polished, pretty, and still completely you.",
-    image: "/images/lashes-brows-service.png",
-    imageAlt: "Professional lash extension tools and lash styling at Sassy Alchemy.",
-    imageClass: "object-[56%_center] sm:object-[54%_center] lg:object-[52%_center]",
+    image: "/images/lashes-brows-service-room.png",
+    imageAlt: "Lash extension trays, tweezers, treatment bed, green wall, and studio details at Sassy Alchemy.",
+    imageClass: "object-[58%_center] sm:object-[56%_center] lg:object-[54%_center]",
     Icon: Eye,
     services: [
       {
@@ -105,9 +105,9 @@ const categories = [
     title: "Come back to yourself.",
     intro:
       "Reiki, sound baths and facial experiences for slowing down, breathing deeper, and giving your energy a little care too.",
-    image: "/images/sound-healing-service.png",
+    image: "/images/sound-healing-service-room.jpg",
     imageAlt: "Singing bowls and sound healing instruments at Sassy Alchemy Beauty & Wellness Studio.",
-    imageClass: "object-[45%_center] sm:object-[46%_center] lg:object-[48%_center]",
+    imageClass: "object-[58%_54%]",
     Icon: Leaf,
     peaceful: true,
     supportLine:
@@ -195,7 +195,12 @@ const categories = [
       >
         <Container class="py-18 sm:py-22 lg:py-30" size="wide">
           <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
-            <figure class="image-frame group relative min-h-[26rem] overflow-hidden bg-stone-100 sm:min-h-[34rem]">
+            <figure
+              class:list={[
+                "image-frame group relative min-h-[26rem] overflow-hidden bg-stone-100 sm:min-h-[34rem]",
+                "imageFrameClass" in category && category.imageFrameClass
+              ]}
+            >
               <img
                 src={withBase(category.image)}
                 alt={category.imageAlt}
@@ -214,7 +219,7 @@ const categories = [
                 <div
                   class:list={[
                     "mb-8 flex h-16 w-16 items-center justify-center rounded-full border",
-                    isDark ? "border-cream/20 bg-cream/8 text-gold-muted" : "border-stone-200 bg-ivory text-forest-900"
+                    isDark ? "border-cream/20 bg-cream/8 text-gold-muted" : "border-stone-200 bg-ivory text-forest-500"
                   ]}
                 >
                   <Icon aria-hidden="true" size={24} stroke-width={1.4} />
@@ -301,7 +306,7 @@ const categories = [
                                   href={site.bookingUrl}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  class="group/book mt-7 inline-flex min-h-12 items-center gap-3 border border-cream/30 bg-cream px-5 py-3 text-sm font-semibold uppercase text-forest-900 transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted focus-visible:-translate-y-0.5 active:translate-y-0"
+                                  class="group/book mt-7 inline-flex min-h-12 items-center gap-3 border border-cream/30 bg-cream px-5 py-3 text-sm font-semibold uppercase text-forest-500 transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted focus-visible:-translate-y-0.5 active:translate-y-0"
                                 >
                                   <span>Book This Service</span>
                                   <ArrowUpRight aria-hidden="true" size={16} stroke-width={1.6} class="transition duration-300 ease-editorial group-hover/book:translate-x-0.5 group-hover/book:-translate-y-0.5" />
@@ -328,7 +333,7 @@ const categories = [
                       <span class:list={["text-sm", isDark ? "text-cream/55" : "text-stone-400"]}>
                         {String(serviceIndex + 1).padStart(2, "0")}
                       </span>
-                      <span class:list={["font-serif text-3xl leading-tight sm:text-4xl", isDark ? "text-ivory" : "text-forest-900"]}>
+                      <span class:list={["font-serif text-3xl leading-tight sm:text-4xl", isDark ? "text-ivory" : "text-forest-500"]}>
                         {service.title}
                       </span>
                       <span
@@ -371,8 +376,8 @@ const categories = [
                             class:list={[
                               "group/book mt-7 inline-flex min-h-12 items-center gap-3 border px-5 py-3 text-sm font-semibold uppercase transition duration-300 ease-editorial hover:-translate-y-0.5 focus-visible:-translate-y-0.5 active:translate-y-0",
                               isDark
-                                ? "border-cream/30 bg-cream text-forest-900 hover:border-gold-muted hover:bg-gold-muted"
-                                : "border-forest-900 bg-forest-900 text-ivory hover:border-gold-muted hover:bg-gold-muted hover:text-forest-900"
+                                ? "border-cream/30 bg-cream text-forest-500 hover:border-gold-muted hover:bg-gold-muted"
+                                : "border-forest-900 bg-forest-900 text-ivory hover:border-gold-muted hover:bg-gold-muted hover:text-forest-500"
                             ]}
                           >
                             <span>Book This Service</span>
@@ -432,7 +437,7 @@ const categories = [
             />
           </svg>
 
-          <p class="font-serif text-4xl leading-none text-forest-900 sm:text-5xl">Tarot</p>
+          <p class="font-serif text-4xl leading-none text-forest-500 sm:text-5xl">Tarot</p>
           <p class="mt-4 text-xs font-semibold uppercase text-gold-deep">Visiting Practitioner</p>
           <h2 class="mt-3 max-w-2xl text-3xl leading-none sm:text-4xl">
             StaySea • The Sea Wytch
@@ -450,7 +455,7 @@ const categories = [
             </p>
           </div>
 
-          <p class="mt-5 border-y border-gold-muted/35 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-forest-900">
+          <p class="mt-5 border-y border-gold-muted/35 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-forest-500">
             Tarot Readings • Astrology • Workshops • Apothecary
           </p>
 
@@ -462,7 +467,7 @@ const categories = [
             href="https://theseawytch.square.site"
             target="_blank"
             rel="noopener noreferrer"
-            class="group/book mt-6 inline-flex min-h-11 items-center gap-3 border border-forest-900 bg-transparent px-4 py-3 text-sm font-semibold uppercase text-forest-900 transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted focus-visible:-translate-y-0.5 active:translate-y-0"
+            class="group/book mt-6 inline-flex min-h-11 items-center gap-3 border border-forest-900 bg-transparent px-4 py-3 text-sm font-semibold uppercase text-forest-500 transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted focus-visible:-translate-y-0.5 active:translate-y-0"
           >
             <span>Explore The Sea Wytch</span>
             <ArrowUpRight aria-hidden="true" size={16} stroke-width={1.6} class="transition duration-300 ease-editorial group-hover/book:translate-x-0.5 group-hover/book:-translate-y-0.5" />
@@ -485,7 +490,7 @@ const categories = [
         href={site.bookingUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="group/book mt-8 inline-flex min-h-12 items-center gap-3 border border-forest-900 bg-forest-900 px-5 py-3 text-sm font-semibold uppercase text-ivory shadow-[0_12px_28px_rgba(16,42,32,0.12)] transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted hover:text-forest-900 focus-visible:-translate-y-0.5 active:translate-y-0"
+        class="group/book mt-8 inline-flex min-h-12 items-center gap-3 border border-forest-900 bg-forest-900 px-5 py-3 text-sm font-semibold uppercase text-ivory shadow-[0_12px_28px_rgba(16,42,32,0.12)] transition duration-300 ease-editorial hover:-translate-y-0.5 hover:border-gold-muted hover:bg-gold-muted hover:text-forest-500 focus-visible:-translate-y-0.5 active:translate-y-0"
       >
         <span>Book</span>
         <ArrowUpRight aria-hidden="true" size={16} stroke-width={1.6} class="transition duration-300 ease-editorial group-hover/book:translate-x-0.5 group-hover/book:-translate-y-0.5" />

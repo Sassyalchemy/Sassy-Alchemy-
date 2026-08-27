@@ -5,12 +5,12 @@
 :root {
   color-scheme: light;
   --color-forest: #102a20;
-  --color-forest-soft: #244734;
+  --color-forest-soft: #102a20;
   --color-cream: #f7f1e7;
   --color-ivory: #fbf8f1;
   --color-gold: #b8995f;
   --color-stone: #ded5c6;
-  --color-charcoal: #242522;
+  --color-charcoal: #102a20;
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -75,7 +75,7 @@ picture {
   h2,
   h3,
   h4 {
-    color: theme("colors.forest.900");
+    color: theme("colors.forest.500");
     font-family: theme("fontFamily.serif");
     font-weight: 500;
     letter-spacing: 0;
