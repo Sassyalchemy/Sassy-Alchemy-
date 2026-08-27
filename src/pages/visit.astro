@@ -2,8 +2,8 @@
 import { ArrowUpRight, AtSign, Mail, MapPin, ParkingMeter, Phone, Timer, Accessibility } from "@lucide/astro";
 import Button from "@components/common/Button.astro";
 import Container from "@components/common/Container.astro";
-import EditorialImage from "@components/common/EditorialImage.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { withBase } from "@content/paths";
 import { site } from "@content/site";
 
 const visitDetails = [
@@ -52,13 +52,16 @@ const visitDetails = [
   </section>
 
   <section class="bg-cream py-18 sm:py-22 lg:py-30">
-    <Container class="grid gap-10 lg:grid-cols-[1.18fr_0.82fr] lg:items-stretch" size="wide">
-      <EditorialImage
-        src="/images/visit-studio-sign.jpg"
-        alt="Sassy Alchemy exterior studio sign"
-        ratio="portrait"
-        class="[&>img]:object-[50%_center]"
-      />
+    <Container class="grid gap-10 lg:grid-cols-[0.78fr_1fr] lg:items-stretch" size="wide">
+      <figure class="image-frame group relative mx-auto aspect-[4/5] w-full max-w-[34rem] overflow-hidden bg-stone-100">
+        <img
+          src={withBase("/images/visit-studio-sign.jpg")}
+          alt="Sassy Alchemy exterior studio sign"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-contain transition duration-700 ease-editorial group-hover:scale-[1.03]"
+        />
+      </figure>
       <div class="surface-soft grid content-between gap-8 p-7 sm:p-9">
         <div>
           <p class="text-xs font-semibold uppercase text-gold-deep">Studio details</p>
